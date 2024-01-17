@@ -47,7 +47,7 @@ module.exports = {
 ],
 "allunlocks": [
     {
-        "name": "Nom du premier unlock général",
+        "name": "tele",
         "logo": "icones/premierunlock.jpg",
         "seuil": 30,
         "idcible": 0,
