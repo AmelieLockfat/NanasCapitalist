@@ -1,6 +1,6 @@
 module.exports = {
-    "name": "Nom du monde",
-    "logo": "icones/logomonde.jpg",
+    "name": "SupersNanas",
+    "logo": "icones/fond.jpeg",
     "money": 0,
     "score": 0,
     "totalangels": 0,
@@ -10,10 +10,10 @@ module.exports = {
     "products": [
         {
             "id": 1,
-            "name": "premier produit",
-            "logo": "icones/premierproduit.jpg",
-            "cout": 4,
-            "croissance": 1.07,
+            "name": "poulpette",
+            "logo": "icones/poulpette.png",
+            "cout": 1,
+            "croissance": 0.02,
             "revenu": 1,
             "vitesse": 500,
             "quantite": 1,
@@ -83,14 +83,13 @@ module.exports = {
 ],
 "managers": [
     {
-        "name": "Wangari Maathai",
-        "logo": "icones/WangariMaathai.jpg",
+        "name": "MOJOJOJO",
+        "logo": "icones/mojojojo.png",
         "seuil": 10,
         "idcible": 1,
         "ratio": 0,
         "typeratio": "gain",
         "unlocked": "false"
-    },
- …
+    }
 ]
 };
