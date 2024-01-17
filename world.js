@@ -29,15 +29,15 @@ module.exports = {
                     "unlocked": "false"
                 },
                 {
-                    "name": "Nom deuxième palier,
+                    "name": "Nom deuxième palier",
                     "logo": "icones/deuxiemepalier.jpg",
                     "seuil": 75,
                     "idcible": 1,
                     "ratio": 2,
                     "typeratio": "vitesse",
                     "unlocked": "false"
-                },
- …
+                }
+            ]
 },
 {
     "id": 2,
@@ -87,6 +87,15 @@ module.exports = {
         "logo": "icones/mojojojo.png",
         "seuil": 10,
         "idcible": 1,
+        "ratio": 0,
+        "typeratio": "gain",
+        "unlocked": "false"
+    },
+    {
+        "name": "SaraBellum",
+        "logo": "icones/SaraBellum.jpg",
+        "seuil": 1000,
+        "idcible": 2,
         "ratio": 0,
         "typeratio": "gain",
         "unlocked": "false"
