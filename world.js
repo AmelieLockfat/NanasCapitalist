@@ -12,7 +12,7 @@ module.exports = {
             "id": 1,
             "name": "poulpette",
             "logo": "icones/poulpette.png",
-            "cout": 1,
+            "cout": 3,
             "croissance": 0.02,
             "revenu": 1,
             "vitesse": 500,
