@@ -20,8 +20,8 @@ module.exports = {
             "timeleft": 0,
             "managerUnlocked": false,
             "palliers": [
-                {"name": "Nom du premier palier",
-                    "logo": "icones/premierpalier.jpg",
+                {"name": "MOJOJOJO",
+                    "logo": "icones/mojojojo.png",
                     "seuil": 20,
                     "idcible": 1,
                     "ratio": 2,
@@ -29,9 +29,9 @@ module.exports = {
                     "unlocked": "false"
                 },
                 {
-                    "name": "Nom deuxième palier",
-                    "logo": "icones/deuxiemepalier.jpg",
-                    "seuil": 75,
+                    "name": "Upgrade1Poulpette",
+                    "logo": "icones/upgrade.png",
+                    "seuil": 35,
                     "idcible": 1,
                     "ratio": 2,
                     "typeratio": "vitesse",
@@ -41,9 +41,34 @@ module.exports = {
 },
 {
     "id": 2,
-    "name": "Deuxième produit »,
-    "logo": "icones/deuxiemeproduit.jpg",
-} …
+    "name": "Telephone" ,
+    "logo": "icones/phone.jpg","cout": 1,
+    "croissance": 0.03,
+    "revenu": 8,
+    "vitesse": 5000,
+    "quantite": 0,
+    "timeleft": 0,
+    "managerUnlocked": false,
+    "palliers": [
+        {"name": "SaraBellum",
+            "logo": "icones/SaraBellum.jpg",
+            "seuil": 1000,
+            "idcible": 2,
+            "ratio": 2,
+            "typeratio": "vitesse",
+            "unlocked": "false"
+        },
+        {
+            "name": "Upgrade1Phone",
+            "logo": "icones/upgrade.png",
+            "seuil": 50,
+            "idcible": 1,
+            "ratio": 2,
+            "typeratio": "vitesse",
+            "unlocked": "false"
+        }
+    ]
+}
 ],
 "allunlocks": [
     {
@@ -54,8 +79,7 @@ module.exports = {
         "ratio": 2,
         "typeratio": "gain",
         "unlocked": "false"
-    },
- …
+    }
 ],
 "upgrades": [
     {
@@ -66,8 +90,7 @@ module.exports = {
         "ratio": 3,
         "typeratio": "gain",
         "unlocked": "false"
-    },
- …
+    }
 ],
 "angelupgrades": [
     {
@@ -78,8 +101,7 @@ module.exports = {
         "ratio": 3,
         "typeratio": "gain",
         "unlocked": "false"
-    },
- …
+    }
 ],
 "managers": [
     {
@@ -96,6 +118,42 @@ module.exports = {
         "logo": "icones/SaraBellum.jpg",
         "seuil": 1000,
         "idcible": 2,
+        "ratio": 0,
+        "typeratio": "gain",
+        "unlocked": "false"
+    },
+    {
+        "name": "MonsieurLeMaire",
+        "logo": "icones/lemaire.jpg",
+        "seuil": 200,
+        "idcible": 3,
+        "ratio": 0,
+        "typeratio": "gain",
+        "unlocked": "false"
+    },
+    {
+        "name": "MlleKeane",
+        "logo": "icones/mllekean.png",
+        "seuil": 400,
+        "idcible": 4,
+        "ratio": 0,
+        "typeratio": "gain",
+        "unlocked": "false"
+    },
+    {
+        "name": "ProfesseurUtonium",
+        "logo": "icones/Professeur.png",
+        "seuil": 100,
+        "idcible": 5,
+        "ratio": 0,
+        "typeratio": "gain",
+        "unlocked": "false"
+    },
+    {
+        "name": "PrincesseMorbucks",
+        "logo": "icones/morbucks.jpg",
+        "seuil": 600,
+        "idcible": 6,
         "ratio": 0,
         "typeratio": "gain",
         "unlocked": "false"
