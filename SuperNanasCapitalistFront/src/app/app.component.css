@@ -1,12 +1,17 @@
-.header { 
-    display: grid; 
-    grid-template-columns: 25% 25% 30% 20%; } 
-.main { 
-    display: grid; 
+.header {
+    display: grid;
+    grid-template-columns: 25% 25% 30% 20%; }
+.main {
+    display: grid;
     grid-template-columns: 20% 80%;
- } 
- 
- .product { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
+ }
+
+ .product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+body {
+
+  background-image: url('../../../public/icones/fond.jpeg');
 }
