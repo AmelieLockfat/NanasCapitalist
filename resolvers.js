@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 function saveWorld(context) {
     fs.writeFile("userworlds/" + context.user + "-world.json",
         JSON.stringify(context.world), err => {
