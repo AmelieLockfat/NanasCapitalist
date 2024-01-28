@@ -9,5 +9,10 @@ import {Product} from "../../../../world";
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-
+  product!: Product;
+  @Input()
+  set prod(value: Product) {
+    this.product = value;
+  }
 }
+

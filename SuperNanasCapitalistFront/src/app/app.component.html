@@ -4,16 +4,25 @@
 <div class="header">
   <span id="worldname">  {{world.name}} </span>
   <div>logo monde</div>
-  <div> argent </div>
+  <div> Argent : <span id="worldmoney">  {{world.money}} </span> </div>
   <div> multiplicateur </div>
   <div> ID du joueur </div> </div>
   <div class="main">
     <div> liste des boutons de menu </div>
-    <div class="product">
-      <div> premier produit</div>
-    <div> second produit </div> <div> troisième produit </div>
-    <div> quatrième produit </div> <div> cinquième produit </div>
-    <div> sixième produit </div>
+    <div class="product" >
+      <div> <app-product [prod]="world.products[0]"
+                         class="product col-md-6"></app-product></div>
+
+    <div> <app-product [prod]="world.products[1]"
+                       class="product col-md-6"></app-product> </div>
+      <div> <app-product [prod]="world.products[2]"
+                         class="product col-md-6"></app-product> </div>
+    <div> <app-product [prod]="world.products[3]"
+                       class="product col-md-6"></app-product> </div>
+      <div> <app-product [prod]="world.products[4]"
+                         class="product col-md-6"></app-product> </div>
+    <div> <app-product [prod]="world.products[5]"
+                       class="product col-md-6"></app-product> </div>
   </div>
   </div>
   <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>

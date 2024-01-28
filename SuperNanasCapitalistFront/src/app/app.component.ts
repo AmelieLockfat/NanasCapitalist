@@ -7,6 +7,7 @@ import {NgModule} from "@angular/core";
 import { FormsModule } from '@angular/forms';  // Importez le module FormsModule
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
