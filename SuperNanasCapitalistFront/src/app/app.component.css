@@ -18,3 +18,17 @@
 #logoWorld{
   height: 50px;
 }
+
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table td {
+  border: 1px solid black;
+}
+
+.product {
+  margin: 10px;
+}
