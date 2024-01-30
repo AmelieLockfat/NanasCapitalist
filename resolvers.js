@@ -28,10 +28,7 @@ module.exports = {
     }
 
     /// Calculer le coût total de l'achat
-    const coutTotal = produit.cout * (1-Math.pow(produit.croissance,quantite));
-    //////A modifier///////
-
-
+    const coutTotal = produit.cout * (1 - Math.pow(produit.croissance, quantite)) / (1 - produit.croissance);
 
     // Vérifier si l'utilisateur a assez d'argent
     if (context.world.money < coutTotal) {
@@ -45,6 +42,7 @@ module.exports = {
 
     // Mettre à jour le coût d'achat du produit
     produit.cout = Math.pow(1 + produit.croissance, quantite)*produit.cout;
+
     // Sauvegarder les changements dans le monde
 
     saveWorld(context);
