@@ -22,6 +22,7 @@ export class AppComponent {
 username : string ='';
 world: World = new World();
 api: String ='https://isiscapitalistgraphql.kk.kurasawa.fr/graphql'
+  server : String='http://localhost:4000/'
 constructor(private service: WebserviceService) {
   service.getWorld().then(
     world => {

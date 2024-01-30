@@ -19,9 +19,7 @@ module.exports = {
     },
     Mutation: {
         acheterQtProduit(id, quantite)
-{
-
-    // Je veux chercher le produit dans le monde
+{// Je veux chercher le produit dans le monde
     const produit = context.world.products.find(p => p.id === id);
 
     // Si le produit n'existe pas, je génère une erreur
@@ -29,14 +27,16 @@ module.exports = {
         throw new Error(`Le produit avec l'id ${id} n'existe pas`);
     }
 
-    // Calculer le coût total de l'achat
-    const coutTotal = produit.cout * quantite;
+    /// Calculer le coût total de l'achat
+    const coutTotal = produit.cout * (1-Math.pow(produit.croissance,quantite));
+    //////A modifier///////
+
+
 
     // Vérifier si l'utilisateur a assez d'argent
     if (context.world.money < coutTotal) {
-        throw new Error(`Pas assez d'argent pour acheter ${quantite} unités du produit avec l'id ${id}`);
+        throw new Error(`Pas assez d'argent pour acheter ${quantite} unité(s) du produit`);
     }
-
     // Déduire le coût total de l'argent du monde
     context.world.money -= coutTotal;
 
@@ -44,11 +44,10 @@ module.exports = {
     produit.quantite += quantite;
 
     // Mettre à jour le coût d'achat du produit
-    produit.cout = produit.cout+produit.croissance;
-
+    produit.cout = Math.pow(1 + produit.croissance, quantite)*produit.cout;
     // Sauvegarder les changements dans le monde
-    saveWorld(context);
 
+    saveWorld(context);
     // Retourner le produit mis à jour
     return produit;}
     }

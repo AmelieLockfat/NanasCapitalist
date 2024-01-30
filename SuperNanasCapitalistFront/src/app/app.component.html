@@ -3,14 +3,14 @@
 <div class="yeah">
 <div class="header">
   <span id="worldname">  {{world.name}} </span>
-  <div>logo monde</div>
+  <div > <img id="logoWorld" [src]="server+ world.logo"/></div>
   <div> Argent : <span id="worldmoney">  {{world.money}} </span> </div>
   <div> multiplicateur </div>
   <div> ID du joueur </div> </div>
   <div class="main">
     <div> liste des boutons de menu </div>
     <div class="product" >
-      <div> <app-product [prod]="world.products[0]"
+      <div> <app-product  [prod]="world.products[0]"
                          class="product col-md-6"></app-product></div>
 
     <div> <app-product [prod]="world.products[1]"
