@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {createClient,fetchExchange} from "@urql/core";
-import { GET_WORLD } from "../../../Grapqhrequests"
+import { GET_WORLD } from './Grapqhrequests';
 
 
 
