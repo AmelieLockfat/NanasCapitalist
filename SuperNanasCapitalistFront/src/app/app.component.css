@@ -12,11 +12,16 @@
 }
 
 .yeah {
-  background-image: url('../../../public/icones/fond.jpeg');
-  height: 100vh;}
+  background-image: url('../../../public/icones/background.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-attachment:local;
+}
+
 
 #logoWorld{
   height: 50px;
+  border-radius: 50%;
 }
 
 

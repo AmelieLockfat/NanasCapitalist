@@ -1,3 +1,18 @@
 .logoProduct{
   height:50px;
 }
+.product-details-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.product-details-table td{
+  margin : 10px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+}
+.product-details{
+    margin: 10px;
+
+}
