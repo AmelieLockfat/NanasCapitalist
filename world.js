@@ -14,7 +14,7 @@ module.exports = {
             "logo": "icones/poulpette.png",
             "cout": 1,
             "croissance": 0.02,
-            "revenu": 1,
+            "revenu": 2,
             "vitesse": 500,
             "quantite": 1,
             "timeleft": 0,

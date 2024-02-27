@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Product} from "../../../../world";
+import {WebserviceService} from "../webservice.service";
 
 @Component({
   selector: 'app-product',
@@ -16,5 +17,10 @@ export class ProductComponent {
   set prod(value: Product) {
     this.product = value;
   }
+  constructor(private service: WebserviceService) {
+  }
+ lancerProduction(){this.service.lancerProduction(this.product).catch(reason =>
+   console.log("erreur: " + reason)
+ );}
 }
 
