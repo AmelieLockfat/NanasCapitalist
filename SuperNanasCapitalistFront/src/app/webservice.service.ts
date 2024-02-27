@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {createClient,fetchExchange} from "@urql/core";
-import { GET_WORLD } from './Grapqhrequests';
+import { GET_WORLD, LANCER_PRODUCTION } from './Grapqhrequests';
+import {Product} from "../../../world";
 
 
 
@@ -30,6 +31,15 @@ export class WebserviceService {
 constructor() {
 }
   // Autres méthodes liées au service web (à ajouter selon les besoins)
+
+
+ lancerProduction(product: Product) {
+  return this.createClient().mutation(LANCER_PRODUCTION, { id:
+    product.id}).toPromise();
 }
+
+}
+
+
 
 

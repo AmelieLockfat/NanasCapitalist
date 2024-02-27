@@ -79,7 +79,6 @@ module.exports = {
                     p.quantite += nb_p_produits;
                     argent_gagne = nb_p_produits * p.revenu;
                     context.world.money += argent_gagne;
-
                 } else {
                     if (p.timeleft !== 0) {
                         p.quantite = p.quantite + 1;
@@ -90,7 +89,6 @@ module.exports = {
                     }
                 }
             }
-            // Sauvegarder les changements dans le monde
             saveWorld(context);
             context.world.lastupdate = Date.now().toString();
         }
