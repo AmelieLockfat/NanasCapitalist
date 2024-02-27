@@ -51,6 +51,7 @@ type Mutation {
  acheterCashUpgrade(name: String!): Palier
  acheterAngelUpgrade(name: String!): Palier
  resetWorld: World
+ calcScore: World
 }
 
 
