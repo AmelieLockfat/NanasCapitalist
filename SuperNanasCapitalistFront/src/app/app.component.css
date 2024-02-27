@@ -1,6 +1,8 @@
 .header {
     display: grid;
     grid-template-columns: 25% 25% 30% 20%; }
+
+
 .main {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -24,6 +26,7 @@
 #logoWorld{
   height: 50px;
   border-radius: 50%;
+  text-align: center;
 }
 
 
@@ -42,3 +45,31 @@
 .product {
   margin: 10px;
 }
+
+/*PARTIE LISTE BOUTONS A GAUCHE */
+
+.listeboutons {
+  border-collapse: collapse;
+  
+}
+
+.boutonunlocks,
+.boutoncash,
+.boutonangel,
+.boutonManagers,
+.boutoninvestors {
+  display: block;
+  width: 100%;
+  margin-bottom: 65px;
+  padding: 10px;
+  background-color: rgb(254, 203, 211);
+}
+button:hover {
+  background-color: rgb(177, 243, 255);
+}
+
+
+
+
+
+

@@ -3,33 +3,51 @@
 <div class="yeah">
 
 <div class="header">
-  <span id="worldname">  {{world.name}} </span>
-  <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/></div>
+  <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/> <span class="name" id="worldname">  {{world.name}} </span></div>
+  
   <div> Argent : <span id="worldmoney">  {{world.money}} </span> </div>
-  <div> multiplicateur </div>
+  <div> <button class="multiplicateur" type="button">Multiplicateur</button> </div>
   <div> ID du joueur </div> 
 </div>
   <div class="main">
-    <div> liste des boutons de menu </div>
+    
+    <div class="bouton"> 
+      <table class="listeboutons">
+        <tbody>
+          <tr>
+            <td><button class="boutonunlocks" type="button">Unlocks</button></td>
+          </tr>
+          <tr>
+            <td><button class="boutoncash" type="button">Cash Upgrades</button></td>
+          </tr>
+          <tr>
+            <td><button class="boutonangel" type="button">Angel Upgrades</button></td>
+          </tr>
+          <tr>
+            <td><button class="boutonManagers" type="button">Managers</button></td>
+          </tr>
+          <tr>
+            <td><button class="boutoninvestors" type="button">Investors</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+
     <div class="product" >
-    <table class="product-table" background =black>
+    <table class="product-table">
       
       <tbody>
       <tr>
 
       <td><div> <app-product  [prod]="world.products[0]"class="product col-md-6"></app-product></div></td>
       <td><div> <app-product [prod]="world.products[1]"class="product col-md-6"></app-product> </div></td>
-      
+      <td><div> <app-product  [prod]="world.products[2]"class="product col-md-6"></app-product></div></td>
+
       </tr>
 
       <tr>
-
-        <td><div> <app-product  [prod]="world.products[2]"class="product col-md-6"></app-product></div></td>
         <td><div> <app-product [prod]="world.products[3]"class="product col-md-6"></app-product> </div></td>
-        
-      </tr>
-      <tr>
-
         <td><div><app-product  [prod]="world.products[4]"class="product col-md-6"></app-product></div></td>
         <td><div><app-product [prod]="world.products[5]"class="product col-md-6"></app-product> </div></td>
         
