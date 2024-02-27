@@ -7,7 +7,9 @@
   
   <div> Argent : <span id="worldmoney">  {{world.money}} </span> </div>
   <div> <button class="multiplicateur" type="button">Multiplicateur</button> </div>
-  <div> ID du joueur </div> 
+  <div> ID du joueur   <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
+  </div> 
+
 </div>
   <div class="main">
     
@@ -57,7 +59,6 @@
     </table>
   </div>
   </div>
-  <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
 
 </div>
 
