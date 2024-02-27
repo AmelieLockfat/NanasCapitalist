@@ -15,8 +15,9 @@
 .yeah {
   background-image: url('../../../public/icones/background.jpg');
   height: 100vh;
+  background-repeat: no-repeat;
   background-size: cover;
-  background-attachment:local;
+  background-attachment: fixed;
 }
 
 
