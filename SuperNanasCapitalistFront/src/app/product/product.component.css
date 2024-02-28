@@ -55,3 +55,14 @@ td {
     right: 0;
   
 }
+.logoProduct{
+  border-radius: 50%;
+}
+
+.productQuantite{
+  padding:10px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
+  color : white;
+  border-color: white;
+}
