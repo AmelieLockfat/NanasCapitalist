@@ -5,10 +5,10 @@
 <div class="header">
   <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/> <span class="name" id="worldname">  {{world.name}} </span></div>
   
-  <div> Argent : <span id="worldmoney">  {{world.money}} </span> </div>
+  <div> <span id="worldmoney">  <img src="../../../public/icones/coeur.jpg" />  {{world.money}} </span> </div>
+
   <div> <button class="multiplicateur" type="button">Multiplicateur</button> </div>
-  <div> ID du joueur   <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
-  </div> 
+  <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/></div> 
 
 </div>
   <div class="main">
