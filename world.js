@@ -1,7 +1,7 @@
 module.exports = {
     "name": "SupersNanas",
     "logo": "icones/ecolo.jpg",
-    "money": 0,
+    "money": 2,
     "score": 0,
     "totalangels": 0,
     "activeangels": 0,
