@@ -24,7 +24,6 @@ module.exports = {
             if (!produit) {
                 throw new Error(`Le produit avec l'id ${args.id} n'existe pas`);
             }
-
             /// Calculer le coût total de l'achat
             const coutTotal = produit.cout * (1 - Math.pow(produit.croissance, args.quantite)) / (1 - produit.croissance);
             // Vérifier si l'utilisateur a assez d'argent
@@ -41,8 +40,7 @@ module.exports = {
             produit.cout = Math.pow(1 + produit.croissance, args.quantite) * produit.cout;
 
             // Sauvegarder les changements dans le monde
-
-            saveWorld(context);
+             saveWorld(context);
             // Retourner le produit mis à jour
             return produit;
         },
