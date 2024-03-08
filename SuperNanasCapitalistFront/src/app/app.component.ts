@@ -5,13 +5,13 @@ import {WebserviceService} from "./webservice.service";
 import {ProductComponent} from "./product/product.component";
 import {NgModule} from "@angular/core";
 import { FormsModule } from '@angular/forms';  // Importez le module FormsModule
-
+import { BigvaluePipe } from './bigvalue.pipe'; 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductComponent,FormsModule],
+  imports: [RouterOutlet, ProductComponent,FormsModule, BigvaluePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

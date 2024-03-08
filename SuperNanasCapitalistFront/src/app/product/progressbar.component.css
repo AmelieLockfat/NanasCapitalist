@@ -1,0 +1,26 @@
+/* Ajoutez ces styles dans votre fichier CSS correspondant */
+
+/* Style pour la barre de progression principale */
+.progressbar {
+    height: 20px; /* Hauteur de la barre de progression */
+    background-color: #e0e0e0; /* Couleur de fond */
+    border-radius: 5px; /* Coins arrondis */
+    overflow: hidden; /* Masquer le débordement si nécessaire */
+  }
+  
+  /* Style pour la partie remplie de la barre de progression */
+  .progressbar-fill::after {
+    content: ""; /* Nécessaire pour la pseudo-classe ::after */
+    display: block;
+    height: 100%; /* Hauteur de la barre remplie */
+    background-color: #4caf50; /* Couleur de la barre remplie */
+  }
+  
+  /* Style pour le texte à l'intérieur de la barre de progression (si applicable) */
+  .progressbar-content {
+    color: #ffffff; /* Couleur du texte */
+    font-weight: bold; /* Style du texte */
+    text-align: center; /* Alignement du texte */
+    line-height: 20px; /* Hauteur de ligne égale à la hauteur de la barre de progression */
+  }
+  
