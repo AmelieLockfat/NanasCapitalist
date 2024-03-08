@@ -22,5 +22,16 @@ export class ProductComponent {
  lancerProduction(){this.service.lancerProduction(this.product).catch(reason =>
    console.log("erreur: " + reason)
  );}
+
+/*
+engagerManager(){this.service.engagerManager(this.product.paliers).catch(reason =>
+  console.log("erreur: " + reason)
+);}
 }
 
+ */
+acheterQtProduit()
+{this.service.engagerManager(this.product).catch(reason =>
+  console.log("erreur: " + reason)
+);}
+}
