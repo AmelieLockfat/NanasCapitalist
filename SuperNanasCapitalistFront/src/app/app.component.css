@@ -39,7 +39,7 @@
 }
 
 .product-table td {
-  
+
   background: linear-gradient(70deg, white, pink);
   border-radius: 20%;
   margin : 30px;
@@ -47,17 +47,17 @@
 
 .product {
   margin: 10px;
-  
+
 }
 .multiplicateur {
     background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
     margin: 10px;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
+    color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
@@ -69,28 +69,28 @@
     color: #fff;
     text-decoration: none;
   }
-  
+
   .worldmoney{
     background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
     margin: 10px;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
+    color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
     border-color : White;
   }
- 
+
 
 /*PARTIE LISTE BOUTONS A GAUCHE */
 
 .listeboutons {
   border-collapse: collapse;
-  
+
 }
 
 .boutonunlocks,
@@ -106,14 +106,14 @@
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
+    color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
     border-color: white
 }
 button:hover {
-  background-position: right center; 
+  background-position: right center;
   color: #fff;
   text-decoration: none;
 }

@@ -4,16 +4,16 @@
 
 <div class="header">
   <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/> <span class="name" id="worldname">  {{world.name}} </span></div>
-  
+
 <div> <span id="worldmoney" [innerHTML]="world.money|bigvalue"> </span> </div>
 
   <div> <button class="multiplicateur" type="button">Multiplicateur</button> </div>
-  <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/></div> 
+  <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/></div>
 
 </div>
   <div class="main">
-    
-    <div class="bouton"> 
+
+    <div class="bouton">
       <table class="listeboutons">
         <tbody>
           <tr>
@@ -34,11 +34,10 @@
         </tbody>
       </table>
     </div>
-    
 
     <div class="product" >
     <table class="product-table">
-      
+
       <tbody>
       <tr>
 
@@ -52,15 +51,20 @@
         <td><div> <app-product [prod]="world.products[3]"class="product col-md-6"></app-product> </div></td>
         <td><div><app-product  [prod]="world.products[4]"class="product col-md-6"></app-product></div></td>
         <td><div><app-product [prod]="world.products[5]"class="product col-md-6"></app-product> </div></td>
-        
+
       </tr>
-    
+
       </tbody>
     </table>
   </div>
+    {{world.managers}}
+    <div>
+      @for (product of world.products; track world.name){
+      {{product.paliers[0].name}}
+      <button (click)="engagerManager(product.paliers[0])"> Engager </button>
+      }
+      <!--<li *ngFor="let palier of product.paliers"> {{ palier.name}}-->
   </div>
 
-</div>
 
-
-
+</div> </div>

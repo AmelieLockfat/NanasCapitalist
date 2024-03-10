@@ -55,14 +55,29 @@ module.exports = {
 
         engagerManager(parent, args, context, info) {
             const nomManager = args.name;
+            const manager = context.world.managers.find(manager => manager.name === nomManager);
             //Je cherche le produit géré par ce manager
-            const produit = context.world.products.find(p => p.paliers && p.paliers.includes(nomManager));
-            //Si le produit n'existe pas, alors on envoie une erreur
+            const produit = context.world.products.find(product => product.paliers.find(palier => palier.name.includes(nomManager)));
+            const palier = produit.paliers.find(palier => palier.name.includes(nomManager));
+            //encore faut-il trouver le produit.
             if (!produit) {
                 throw new Error(`Le produit avec le nom de manager "${nomManager}" n'a pas été trouvé.`);
             }
+            // Je récupère le prix du manager
+            const prixManager= manager.seuil;
+            // Il faut avoir assez de monnaie
+            if (context.world.money < prixManager) {
+                throw new Error(`Pas assez d'argent pour engager le manager "${nomManager}".`);
+            }
+            // manager unlocked
             produit.managerUnlocked = true;
-            // Il faut décroître l'argent du manager + erreur si le manager est déjà débloqué
+            // je perds de l'argent en payant mon manager
+            context.world.money -= prixManager;
+            // je lance la prod
+            this.lancerProductionProduit(parent, { id: produit.id }, context, info);
+            // Sauvegarder les changements dans le monde
+            saveWorld(context);
+            return palier
         }
         ,
 

@@ -31,7 +31,7 @@ engagerManager(){this.service.engagerManager(this.product.paliers).catch(reason 
 );}
 }
 
- 
+
 acheterQtProduit()
 {this.service.engagerManager(this.product).catch(reason =>
   console.log("erreur: " + reason)

@@ -20,7 +20,7 @@ export class WebserviceService {
       exchanges: [fetchExchange],
       fetchOptions: () => {
         return {
-          headers: {'x-user': this.user},
+          headers: {'x-user': this.user}
         };
       },
     });
@@ -44,7 +44,7 @@ export class WebserviceService {
   }
 
   engagerManager(palier: Palier) {
-    return this.createClient().mutation(ENGAGER_MANAGER, {name: Palier.name}).toPromise();
+    return this.createClient().mutation(ENGAGER_MANAGER, {name: palier.name}).toPromise();
   }
 
   // Acheter un unique produit !!!!!

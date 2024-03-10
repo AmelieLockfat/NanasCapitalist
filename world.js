@@ -19,7 +19,7 @@ module.exports = {
             "quantite": 1,
             "timeleft": 0,
             "managerUnlocked": false,
-            "palliers": [
+            "paliers": [
                 {"name": "MOJOJOJO",
                     "logo": "icones/mojojojo.png",
                     "seuil": 20,
@@ -49,7 +49,7 @@ module.exports = {
     "quantite": 0,
     "timeleft": 0,
     "managerUnlocked": false,
-    "palliers": [
+    "paliers": [
         {"name": "SaraBellum",
             "logo": "icones/SaraBellum.jpg",
             "seuil": 1000,
@@ -107,7 +107,7 @@ module.exports = {
     {
         "name": "MOJOJOJO",
         "logo": "icones/mojojojo.png",
-        "seuil": 10,
+        "seuil": 20,
         "idcible": 1,
         "ratio": 0,
         "typeratio": "gain",
