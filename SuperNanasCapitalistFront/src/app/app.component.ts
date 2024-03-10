@@ -18,35 +18,50 @@ import { BigvaluePipe } from './bigvalue.pipe';
 
 export class AppComponent {
   title = 'SuperNanasCapitalistFront';
-username : string ='';
-world: World = new World();
-api: String ='https://isiscapitalistgraphql.kk.kurasawa.fr/graphql'
-  server : String='http://localhost:4000/'
-
+  username: string = '';
+  world: World = new World();
+  api: String = 'https://isiscapitalistgraphql.kk.kurasawa.fr/graphql'
+  server: String = 'http://localhost:4000/'
+  multiplicateurValue: number = 1;
   showContent
-constructor(private service: WebserviceService) {
-  service.getWorld().then(
-    world => {
-      this.world = world.data.getWorld;
 
-    });
-  this.showContent = true
+  constructor(private service: WebserviceService) {
+    service.getWorld().then(
+      world => {
+        this.world = world.data.getWorld;
+
+      });
+    this.showContent = true
+
+  }
+
+  getUsername() {
+    if (localStorage.getItem("username")) {
+      this.username = localStorage.getItem("username")!;
+    }
+  }
+
+  onUsernameChanged() {
+    localStorage.setItem("username", this.username);
+  }
+
+  engagerManager(manager: Palier) {
+    this.service.engagerManager(manager).catch(reason =>
+      console.log("erreur: " + reason)
+    );
+  }
+
+  onMultiplicateurClick() {
+    if (this.multiplicateurValue === 1) {
+      this.multiplicateurValue = 10;
+    } else if (this.multiplicateurValue === 10) {
+      this.multiplicateurValue = 100;
+    } else {
+      // Si le multiplicateur est à 100, revenir à 1
+      this.multiplicateurValue = 1;
+    }
+  }
 
 }
-getUsername(){
-  if  (localStorage.getItem("username")){
-  this.username = localStorage.getItem("username")!;
-}}
-
-  onUsernameChanged(){
-  localStorage.setItem("username", this.username);
-}
-
-  engagerManager(manager: Palier){
-  this.service.engagerManager(manager).catch(reason =>
-    console.log("erreur: " + reason)
-  );}
-}
-
 
 

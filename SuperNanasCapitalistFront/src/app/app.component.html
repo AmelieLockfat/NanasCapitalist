@@ -7,7 +7,7 @@
 
 <div> <span id="worldmoney" [innerHTML]="world.money|bigvalue"> </span> </div>
 
-  <div> <button class="multiplicateur" type="button">Multiplicateur</button> </div>
+  <div> <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicateur : {{ multiplicateurValue }}</button> </div>
   <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/></div>
 
 </div>
@@ -60,12 +60,15 @@
     {{world.managers}}
     <div>
       <!--Ce code permet de parcourir les managers sur l'api du prof,
-       pour notre api il faudra le changer mais tqt je sais comment faire mais
-       je peux pas lier notre back et notre front pcq il y a des questions de sécurité chiantes-->
+       pour notre api il faudra le changer
+
+      -->
       @for (product of world.products; track world.name){
+      @if (!product.paliers[0].unlocked) {
       {{product.paliers[0].name}}
+
       <button (click)="engagerManager(product.paliers[0])"> Engager </button>
-      }
+      }}
       <!--<li *ngFor="let palier of product.paliers"> {{ palier.name}}-->
   </div>
 
