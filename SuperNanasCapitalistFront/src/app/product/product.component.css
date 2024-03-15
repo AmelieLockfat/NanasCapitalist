@@ -16,7 +16,7 @@
 }
 .product-details{
     margin: 10px;
-
+    
 }
 td {
   border: 1px solid #ddd;
@@ -65,4 +65,10 @@ td {
   background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
   color : white;
   border-color: white;
+}
+
+.progressbar{
+  background-color: #DD2476;
+  width: 100%; /* Utilisez la largeur totale de la case parente */
+  height: 100%;
 }
