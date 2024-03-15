@@ -10,7 +10,7 @@ module.exports = {
     "products": [
         {
             "id": 1,
-            "name": "poulpette",
+            "name": "Poulpette",
             "logo": "icones/poulpette.png",
             "cout": 1,
             "croissance": 0.02,
@@ -19,7 +19,7 @@ module.exports = {
             "quantite": 1,
             "timeleft": 0,
             "managerUnlocked": false,
-            "palliers": [
+            "paliers": [
                 {"name": "MOJOJOJO",
                     "logo": "icones/mojojojo.png",
                     "seuil": 20,
@@ -49,7 +49,7 @@ module.exports = {
     "quantite": 0,
     "timeleft": 0,
     "managerUnlocked": false,
-    "palliers": [
+    "paliers": [
         {"name": "SaraBellum",
             "logo": "icones/SaraBellum.jpg",
             "seuil": 1000,
@@ -68,8 +68,79 @@ module.exports = {
             "unlocked": "false"
         }
     ]
-}
-],
+},
+        {"id": 3,
+            "name": "Perles" ,
+            "logo": "icones/perles.jpg",
+            "cout": 10,
+            "croissance": 0.05,
+            "revenu": 8,
+            "vitesse": 5000,
+            "quantite": 0,
+            "timeleft": 0,
+            "managerUnlocked": false,
+            "paliers":[{
+            "name": "Upgrade1Perles",
+                "logo": "icones/upgrade.png",
+                "seuil": 55,
+                "idcible": 3,
+                "ratio": 2,
+                "typeratio": "vitesse",
+                "unlocked": "false"}]},
+        {"id": 4,
+            "name": "Sceau" ,
+            "logo": "icones/sceau.jpg",
+            "cout": 10,
+            "croissance": 0.05,
+            "revenu": 8,
+            "vitesse": 5000,
+            "quantite": 0,
+            "timeleft": 0,
+            "managerUnlocked": false,
+            "paliers":[{
+                "name": "Upgrade1Phone",
+                "logo": "icones/upgrade.png",
+                "seuil": 50,
+                "idcible": 4,
+                "ratio": 2,
+                "typeratio": "vitesse",
+                "unlocked": "false"
+            }]},
+        { "id": 5,
+    "name": "CoeurPuissant" ,
+    "logo": "icones/coeur.jpg",
+    "cout": 10,
+    "croissance": 0.05,
+    "revenu": 8,
+    "vitesse": 5000,
+    "quantite": 0,
+    "timeleft": 0,
+    "managerUnlocked": false,
+    "paliers":[{"name": "Upgrade1Phone",
+        "logo": "icones/upgrade.png",
+        "seuil": 50,
+        "idcible": 5,
+        "ratio": 2,
+        "typeratio": "vitesse",
+        "unlocked": "false"}]},
+        {"id": 6,
+            "name": "Noeud" ,
+            "logo": "icones/noeud.jpg",
+            "cout": 100,
+            "croissance": 0.3,
+            "revenu": 250,
+            "vitesse": 5000,
+            "quantite": 0,
+            "timeleft": 0,
+            "managerUnlocked": false,
+            "paliers":[{"name": "Upgrade1Phone",
+                "logo": "icones/upgrade.png",
+                "seuil": 50,
+                "idcible": 6,
+                "ratio": 2,
+                "typeratio": "vitesse",
+                "unlocked": "false"}
+]}],
 "allunlocks": [
     {
         "name": "tele",
@@ -107,7 +178,7 @@ module.exports = {
     {
         "name": "MOJOJOJO",
         "logo": "icones/mojojojo.png",
-        "seuil": 10,
+        "seuil": 20,
         "idcible": 1,
         "ratio": 0,
         "typeratio": "gain",
@@ -158,5 +229,5 @@ module.exports = {
         "typeratio": "gain",
         "unlocked": "false"
     }
-]
-};
+]}
+;
