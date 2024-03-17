@@ -53,7 +53,7 @@ export const LANCER_PRODUCTION = gql`
  }
   `
 export const ENGAGER_MANAGER = gql`
- mutation engagerManager($name : string) {
+ mutation engagerManager($name : String!) {
  engagerManager(name : $name) {
  name
  }

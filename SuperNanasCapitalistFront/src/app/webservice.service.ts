@@ -15,6 +15,7 @@ export class WebserviceService {
   api = "https://isiscapitalistgraphql.kk.kurasawa.fr/graphql"
 
   createClient() {
+    this.getUsername();
     return createClient({
       url: this.server,  // Utilisation de l'URL définie dans la propriété server
       exchanges: [fetchExchange],
@@ -26,7 +27,14 @@ export class WebserviceService {
     });
   }
 
-  getWorld() {
+  getUsername() {
+    if (localStorage.getItem("username")) {
+      this.user = localStorage.getItem("username")!;
+    }
+  }
+
+
+    getWorld() {
     return this.createClient().query(GET_WORLD, {}).toPromise();
   }
 

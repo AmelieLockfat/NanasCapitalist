@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, Inject} from '@angular/core';
+import { RouterOutlet, Router } from '@angular/router';
 import {World,Palier,Product} from "../../../world";
 import {WebserviceService} from "./webservice.service";
 import {ProductComponent} from "./product/product.component";
-import {CommonModule, NgFor} from "@angular/common";
+import {CommonModule, DOCUMENT, NgFor} from "@angular/common";
 import { FormsModule } from '@angular/forms';  // Importez le module FormsModule
 import { BigvaluePipe } from './bigvalue.pipe';
 
@@ -24,15 +24,24 @@ export class AppComponent {
   server: String = 'http://localhost:4000/'
   multiplicateurValue: number = 1;
   showManagersSection = false;
+
+
   showContent
 
-  constructor(private service: WebserviceService) {
+  constructor(private service: WebserviceService, private router: Router) {
+
+    this.getUsername();
     service.getWorld().then(
       world => {
-        this.world = world.data.getWorld;
-console.log(this.world);
+        this.world = world.data.getWorld
       });
     this.showContent = true
+  }
+
+  reloadPage() {
+    this.router.navigate(['.']).then(() => {
+      window.location.reload();
+    });
   }
 
   getUsername() {
