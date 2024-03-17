@@ -11,6 +11,15 @@ export const GET_WORLD = gql`
   activeangels
   angelbonus
   lastupdate
+  managers{
+  name
+  logo
+  seuil
+  idcible
+  ratio
+  typeratio
+  unlocked
+ }
   products {
     cout
     name

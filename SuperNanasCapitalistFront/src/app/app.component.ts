@@ -23,16 +23,16 @@ export class AppComponent {
   api: String = 'https://isiscapitalistgraphql.kk.kurasawa.fr/graphql'
   server: String = 'http://localhost:4000/'
   multiplicateurValue: number = 1;
+  showManagersSection = false;
   showContent
 
   constructor(private service: WebserviceService) {
     service.getWorld().then(
       world => {
         this.world = world.data.getWorld;
-
+console.log(this.world);
       });
     this.showContent = true
-
   }
 
   getUsername() {
@@ -43,6 +43,10 @@ export class AppComponent {
 
   onUsernameChanged() {
     localStorage.setItem("username", this.username);
+  }
+
+  toggleManagersSection() {
+    this.showManagersSection = !this.showManagersSection;
   }
 
   engagerManager(manager: Palier) {

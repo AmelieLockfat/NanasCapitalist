@@ -204,7 +204,7 @@ module.exports = {
     },
     {
         "name": "MlleKeane",
-        "logo": "icones/mllekean.png",
+        "logo": "icones/mllekeane.png",
         "seuil": 400,
         "idcible": 4,
         "ratio": 0,

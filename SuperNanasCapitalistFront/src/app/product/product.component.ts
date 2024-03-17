@@ -20,7 +20,7 @@ export class ProductComponent {
   set prod(value: Product) {
     this.product = value;
     if (!this.product) this.product = new Product()
-    console.log(this.product)
+   // console.log(this.product)
   }
   constructor(private service: WebserviceService) {
   }
