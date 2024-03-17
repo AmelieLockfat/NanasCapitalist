@@ -6,8 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:SuperNanasCapitalistFront": "node dist/super-nanas-capitalist-front/server/server.mjs"
+    "test": "ng test"
+ 
   },
   "private": true,
   "dependencies": {

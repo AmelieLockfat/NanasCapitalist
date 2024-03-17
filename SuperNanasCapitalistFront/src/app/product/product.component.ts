@@ -2,11 +2,12 @@ import {Component, Input} from '@angular/core';
 import {Product} from "../../../../world";
 import {WebserviceService} from "../webservice.service";
 import {MatProgressBarModule} from '@angular/material/progress-bar'
+import { MyProgressBarComponent } from './progressbar.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [MatProgressBarModule,],
+  imports: [MatProgressBarModule,MyProgressBarComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -18,6 +19,8 @@ export class ProductComponent {
   @Input()
   set prod(value: Product) {
     this.product = value;
+    if (!this.product) this.product = new Product()
+    console.log(this.product)
   }
   constructor(private service: WebserviceService) {
   }
