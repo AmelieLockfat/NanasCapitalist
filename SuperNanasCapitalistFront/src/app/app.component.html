@@ -60,12 +60,14 @@
 @if (showManagersSection) {
     <div class="dessus" >
         <h2> Les Managers sont là pour vous aider ! </h2>
+                <button class="close-button" (click)="toggleManagersSection()">X</button>
+
 <div class="colonnes" style="display: flex;">
   <div class="column">
 <ul >
       @for (manager of world.managers;let index = $index; track manager.idcible){
       @if (!manager.unlocked && index % 2 === 0) {
-    <li style="margin: 20px;">
+    <li style="margin: 15px;">
     <img class="round" [src]="server + manager.logo"/>
      {{manager.name}}</li>
 
@@ -76,7 +78,7 @@
 <ul>
       @for (manager of world.managers;let index = $index; track manager.idcible){
     @if (!manager.unlocked && index % 2 === 1) {
-    <li style="margin: 20px;">
+    <li style="margin: 15px;">
     <img class="round" [src]="server + manager.logo"/>
     {{manager.name}}</li>
 
