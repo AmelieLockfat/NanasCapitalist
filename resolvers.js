@@ -40,7 +40,7 @@ module.exports = {
             produit.cout = Math.pow(1 + produit.croissance, args.quantite) * produit.cout;
 
             // Sauvegarder les changements dans le monde
-            context.world.lastupdate = Date.now().toString();
+            //context.world.lastupdate = Date.now().toString();
              saveWorld(context);
             // Retourner le produit mis à jour
             return produit;
@@ -50,7 +50,7 @@ module.exports = {
         lancerProductionProduit(parent, args, context, info) {
             const produit = context.world.products.find(p => p.id === args.id);
             produit.timeleft = produit.vitesse;
-            this.calcScore(parent, args, context)
+          //  this.calcScore(parent, args, context)
         },
 
 
@@ -77,7 +77,7 @@ module.exports = {
             // je lance la prod
             this.lancerProductionProduit(parent, { id: produit.id }, context, info);
             // Sauvegarder les changements dans le monde
-            context.world.lastupdate = Date.now().toString();
+          //  context.world.lastupdate = Date.now().toString();
             saveWorld(context);
             this.calcScore(context)
             return palier
