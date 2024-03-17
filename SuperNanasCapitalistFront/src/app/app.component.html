@@ -7,7 +7,7 @@
 
 <div> <span id="worldmoney" > {{world.money|bigvalue}}</span> </div>
 
-  <div> <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicateur : {{ multiplicateurValue }}</button> </div>
+  <div> <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicateur : {{ multiplicateurService.multiplicateurValue }}</button> </div>
   <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
   <button class="multiplicateur" (click)="reloadPage()">Charger mon monde</button></div>
 
@@ -18,7 +18,7 @@
       <table class="listeboutons">
         <tbody>
           <tr>
-            <td><button class="boutonunlocks" type="button">Unlocks</button></td>
+            <td><button class="boutonunlocks" type="button" (click)="toggleUnlocksSection()">Unlocks</button></td>
           </tr>
           <tr>
             <td><button class="boutoncash" type="button">Cash Upgrades</button></td>
@@ -87,6 +87,14 @@
     }}</ul>
     </div> </div>
 </div>}
+
+    @if(showUnlocksSection){
+    <div class="dessus" >
+    <h2> Avec les unlocks, vous serez riches d'ici ce soir ! </h2>
+    </div>
+    }
+
+
 
 
 </div> </div>

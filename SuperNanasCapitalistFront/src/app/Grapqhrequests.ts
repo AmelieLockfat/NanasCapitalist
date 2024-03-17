@@ -21,6 +21,7 @@ export const GET_WORLD = gql`
   unlocked
  }
   products {
+  id
     cout
     name
     logo

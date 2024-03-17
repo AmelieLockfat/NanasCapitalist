@@ -6,7 +6,7 @@ import {ProductComponent} from "./product/product.component";
 import {CommonModule, DOCUMENT, NgFor} from "@angular/common";
 import { FormsModule } from '@angular/forms';  // Importez le module FormsModule
 import { BigvaluePipe } from './bigvalue.pipe';
-
+import {MultiplicateurService} from "./MultiplicateurService";
 
 @Component({
   selector: 'app-root',
@@ -22,14 +22,16 @@ export class AppComponent {
   world: World = new World();
   api: String = 'https://isiscapitalistgraphql.kk.kurasawa.fr/graphql'
   server: String = 'http://localhost:4000/'
-  multiplicateurValue: number = 1;
+
   showManagersSection = false;
+  showUnlocksSection = false;
+
 
 
   showContent
 
-  constructor(private service: WebserviceService, private router: Router) {
-
+  constructor(private service: WebserviceService, private router: Router, public multiplicateurService : MultiplicateurService) {
+ this.multiplicateurService=multiplicateurService;
     this.getUsername();
     service.getWorld().then(
       world => {
@@ -56,6 +58,12 @@ export class AppComponent {
 
   toggleManagersSection() {
     this.showManagersSection = !this.showManagersSection;
+
+  }
+
+  toggleUnlocksSection() {
+    this.showUnlocksSection= !this.showUnlocksSection;
+
   }
 
   engagerManager(manager: Palier) {
@@ -65,13 +73,13 @@ export class AppComponent {
   }
 
   onMultiplicateurClick() {
-    if (this.multiplicateurValue === 1) {
-      this.multiplicateurValue = 10;
-    } else if (this.multiplicateurValue === 10) {
-      this.multiplicateurValue = 100;
+    if (this.multiplicateurService.multiplicateurValue === 1) {
+      this.multiplicateurService.multiplicateurValue = 10;
+    } else if (this.multiplicateurService.multiplicateurValue === 10) {
+      this.multiplicateurService.multiplicateurValue = 100;
     } else {
       // Si le multiplicateur est à 100, revenir à 1
-      this.multiplicateurValue = 1;
+      this.multiplicateurService.multiplicateurValue = 1;
     }
   }
 

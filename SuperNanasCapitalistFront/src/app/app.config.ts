@@ -5,7 +5,8 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import {CommonModule} from "@angular/common";
+import {MultiplicateurService} from "./MultiplicateurService";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), provideAnimations(), provideAnimations()]
+  providers: [provideRouter(routes), provideClientHydration(), provideAnimations(), provideAnimations(), MultiplicateurService]
 };

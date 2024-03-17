@@ -13,6 +13,7 @@ export class WebserviceService {
   server = 'http://localhost:4000/graphql';
   user = '';
   api = "https://isiscapitalistgraphql.kk.kurasawa.fr/graphql"
+  multiplicateurValue: number = 1;
 
   createClient() {
     this.getUsername();
@@ -56,8 +57,9 @@ export class WebserviceService {
   }
 
   // Acheter un unique produit !!!!!
-  acheterQtProduit(product : Product) {
-    return this.createClient().mutation(ACHETER_PRODUIT, {id : product.id, quantite:1}).toPromise();
+  acheterQtProduit(id:number, quantite: number) {
+    console.log(id,quantite)
+    return this.createClient().mutation(ACHETER_PRODUIT, {id :id, quantite: quantite}).toPromise();
   }
 }
 
