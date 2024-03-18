@@ -53,7 +53,11 @@
   background-size: cover;
   background-attachment: fixed;
 }
-
+.PageTitle{
+  font-family: "Lucida Handwriting", cursive; /* Utilisation de la police Lucida Handwriting */
+  color: #ff1493; /* Couleur rose foncé */
+  padding-left: 20px;
+}
 
 #logoWorld{
   height: 100px;

@@ -60,7 +60,7 @@
   </div>
 @if (showManagersSection) {
     <div class="dessus" >
-        <h2> Les Managers sont là pour vous aider ! </h2>
+        <h2 class="PageTitle"> Les Managers sont là pour vous aider ! </h2>
                 <button class="close-button" (click)="toggleManagersSection()">X</button>
 
 <div class="colonnes" style="display: flex;">
@@ -90,7 +90,13 @@
 
     @if(showUnlocksSection){
     <div class="dessus" >
-    <h2> Avec les unlocks, vous serez riches d'ici ce soir ! </h2>
+    <h2 class="PageTitle"> Avec les unlocks, vous serez riches d'ici ce soir ! </h2>
+    <div>
+     @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
+    @if(!unlock.unlocked){
+    {{unlock.name}}
+    }}
+    </div>
     </div>
     }
 

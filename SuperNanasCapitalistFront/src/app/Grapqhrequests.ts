@@ -8,6 +8,14 @@ export const GET_WORLD = gql`
   money
   score
   totalangels
+  allunlocks{
+  name
+  logo
+  seuil
+  ratio
+  idcible
+  typeratio
+  unlocked}
   activeangels
   angelbonus
   lastupdate
