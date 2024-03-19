@@ -58,7 +58,10 @@
   color: #ff1493; /* Couleur rose foncé */
   padding-left: 20px;
 }
-
+#nameWorld{
+  width: 300px; /* Définit la largeur de l'image à 200 pixels */
+  height: auto;
+}
 #logoWorld{
   height: 100px;
   border-radius: 50%;

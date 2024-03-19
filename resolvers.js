@@ -53,7 +53,6 @@ module.exports = {
           //  this.calcScore(parent, args, context)
         },
 
-
         engagerManager(parent, args, context, info) {
             const nomManager = args.name;
             const manager = context.world.managers.find(manager => manager.name === nomManager);
@@ -72,14 +71,17 @@ module.exports = {
             }
             // manager unlocked
             produit.managerUnlocked = true;
+            manager.unlocked=true;
+            palier.unlocked=true;
             // je perds de l'argent en payant mon manager
             context.world.money -= prixManager;
             // je lance la prod
-            this.lancerProductionProduit(parent, { id: produit.id }, context, info);
+
             // Sauvegarder les changements dans le monde
           //  context.world.lastupdate = Date.now().toString();
             saveWorld(context);
-            this.calcScore(context)
+
+
             return palier
         }
         ,
