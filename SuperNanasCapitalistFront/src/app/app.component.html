@@ -91,9 +91,13 @@
     @if(showUnlocksSection){
     <div class="dessus" >
     <h2 class="PageTitle"> Avec les unlocks, vous serez riches d'ici ce soir ! </h2>
+                    <button class="close-button" (click)="toggleUnlocksSection()">X</button>
+
     <div>
      @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
+
     @if(!unlock.unlocked){
+
     {{unlock.name}}
     }}
     </div>

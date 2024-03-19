@@ -48,6 +48,7 @@
 }
 .yeah {
   background-image: url('../../../public/icones/background.jpg');
+  backdrop-filter: blur(10px); /* Flou de l'arrière-plan */
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;

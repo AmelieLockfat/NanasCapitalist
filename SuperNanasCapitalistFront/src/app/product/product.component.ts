@@ -18,6 +18,8 @@ export class ProductComponent {
   api="https://isiscapitalistgraphql.kk.kurasawa.fr/";
   progressbarvalue=0;
 
+
+
   @Input()
   set prod(value: Product) {
     this.product = value;

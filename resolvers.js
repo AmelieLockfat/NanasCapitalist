@@ -31,7 +31,8 @@ module.exports = {
                 throw new Error(`Pas assez d'argent pour acheter ${args.quantite} unité(s) du produit`);
             }
             // Déduire le coût total de l'argent du monde
-            context.world.money -= coutTotal;
+
+            context.world.money = parseFloat(context.world.money - coutTotal).toFixed(2);
 
             // Augmenter la quantité du produit
             produit.quantite += args.quantite;
