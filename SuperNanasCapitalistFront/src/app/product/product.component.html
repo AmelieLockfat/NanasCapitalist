@@ -18,8 +18,14 @@
         <td scope="row" colspan="3">
           <div class="progressbar-container">
           <!--<div class="progressbar" style="background-color: red;" >-->
-            <app-my-progress-bar class="progressbar" backcolor="#ffffff" frontcolor="#ff0000"></app-my-progress-bar>
-            <!--<mat-progress-bar [value]="progressbarvalue" title="progression" ></mat-progress-bar></div>-->
+            <app-my-progress-bar [run]="run" [auto]="auto"
+            frontcolor="#008800"
+            backcolor="#DD2476"
+            [orientation]="orientation" 
+            [vitesse]="vitesse"
+            [initialValue]="initialValue">
+</app-my-progress-bar>
+         <!--<mat-progress-bar [value]="progressbarvalue" title="progression" ></mat-progress-bar></div>-->
           <!--</div>--></div></td>
       </tr>
 

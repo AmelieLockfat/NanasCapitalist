@@ -83,6 +83,12 @@ export class AppComponent {
     }
   }
 
-}
+  onProductionDone(p :Product){
+    // Augmenter l'argent du joueur avec le revenu (cout)
+    this.world.money += p.revenu;
+
+  }
+  }
+  
 
 

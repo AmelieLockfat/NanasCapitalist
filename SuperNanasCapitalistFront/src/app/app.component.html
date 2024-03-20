@@ -42,16 +42,16 @@
       <tbody>
       <tr>
 
-      <td><div> <app-product  [prod]="world.products[0]"class="product col-md-6"></app-product></div></td>
-      <td><div> <app-product [prod]="world.products[1]"class="product col-md-6"></app-product> </div></td>
-      <td><div> <app-product  [prod]="world.products[2]"class="product col-md-6"></app-product></div></td>
+      <td><div> <app-product  [prod]="world.products[0]"class="product col-md-6" (notifyProduction)="onProductionDone($event)"></app-product></div></td>
+      <td><div> <app-product [prod]="world.products[1]"class="product col-md-6" (notifyProduction)="onProductionDone($event)"></app-product> </div></td>
+      <td><div> <app-product  [prod]="world.products[2]"class="product col-md-6" (notifyProduction)="onProductionDone($event)"></app-product></div></td>
 
       </tr>
 
       <tr>
-        <td><div> <app-product [prod]="world.products[3]"class="product col-md-6"></app-product> </div></td>
-        <td><div><app-product  [prod]="world.products[4]"class="product col-md-6"></app-product></div></td>
-        <td><div><app-product [prod]="world.products[5]"class="product col-md-6"></app-product> </div></td>
+        <td><div> <app-product [prod]="world.products[3]"class="product col-md-6" (notifyProduction)="onProductionDone($event)"></app-product> </div></td>
+        <td><div><app-product  [prod]="world.products[4]"class="product col-md-6" (notifyProduction)="onProductionDone($event)"></app-product></div></td>
+        <td><div><app-product [prod]="world.products[5]"class="product col-md-6" (notifyProduction)="onProductionDone($event)"></app-product> </div></td>
 
       </tr>
 

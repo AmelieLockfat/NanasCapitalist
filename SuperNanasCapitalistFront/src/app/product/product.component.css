@@ -67,11 +67,11 @@ td {
   border-color: white;
 }
 
-.progressbar{
+/*.progressbar{
   background-color: #DD2476;
-  width: 100%; /* Utilisez la largeur totale de la case parente */
+  width: 100%;  Utilisez la largeur totale de la case parente 
   height: 10px;
-}
+}*/
 
 .progressbar-container {
   height: 10px; /* Hauteur de la case contenant la barre de progression */

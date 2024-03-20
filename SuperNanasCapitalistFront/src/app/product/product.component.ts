@@ -4,6 +4,7 @@ import {WebserviceService} from "../webservice.service";
 import {MatProgressBarModule} from '@angular/material/progress-bar'
 import { MyProgressBarComponent } from './progressbar.component';
 import {MultiplicateurService} from "../MultiplicateurService";
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -17,6 +18,7 @@ export class ProductComponent {
   server : String='http://localhost:4000/';
   api="https://isiscapitalistgraphql.kk.kurasawa.fr/";
   progressbarvalue=0;
+  lastupdate =0;
 
 
 
@@ -46,4 +48,48 @@ acheterQtProduit(product : Product){
   this.service.acheterQtProduit(this.product.id, this.multiplicateurService.multiplicateurValue ).catch(reason =>
   console.log("erreur: " + reason)
 );}
+
+calcScore(){
+    this.product.lastupdate = Date.now();
+
+    if (this.product.timeleft === 0) {
+        // ne rien faire si le produit n'est pas en cours de production
+        return;
+    } else {
+        const tempsEcoule = Date.now() - this.product.lastupdate;
+        this.product.timeleft -= tempsEcoule;
+        
+        if (this.product.timeleft <= 0) {
+          const moneyEanerd = this.product.cout;
+            // Si timeleft est devenu nul ou négatif
+            // Remettez la barre de production à zéro
+            this.progressbarvalue = 0;
+            // Remettez timeleft à zéro
+            this.product.timeleft = 0;
+            this.notifyProduction.emit(this.product);
+
+        } else {
+            // Si timeleft est strictement positif
+            // Calcul de la nouvelle valeur de la barre de progression
+            this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
+        }// on prévient le composant parent que ce produit a généré son revenu.
+    
+      }
+    }
+
+//déclarez un évènement de sortie
+@Output() 
+notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
+
+
+ngOnInit(){
+  setInterval(() => { 
+    this.calcScore(); 
+  }, 100);
 }
+
+}
+function Output(): (target: ProductComponent, propertyKey: "notifyProduction") => void {
+  throw new Error('Function not implemented.');
+}
+
