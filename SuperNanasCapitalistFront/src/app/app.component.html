@@ -42,7 +42,7 @@
       <tbody>
       <tr>
 
-      <td><div> <app-product  [prod]="world.products[0]"class="product col-md-6"></app-product></div></td>
+      <td><div> <app-product  [prod]="world.products[0]"class="product col-md-6" ></app-product></div></td>
       <td><div> <app-product [prod]="world.products[1]"class="product col-md-6"></app-product> </div></td>
       <td><div> <app-product  [prod]="world.products[2]"class="product col-md-6"></app-product></div></td>
 
@@ -95,16 +95,15 @@
 
     <div>
      @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
-    @if(!unlock.unlocked){
+
 
     {{unlock.name}}
-    }}
 
-    </div>
-    </div>
-    }
+
+    }</div></div>}
 
 
 
 
-</div> </div>
+</div>
+

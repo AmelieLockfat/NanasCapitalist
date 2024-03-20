@@ -50,6 +50,7 @@ type Mutation {
  engagerManager(name: String!): Palier
  acheterCashUpgrade(name: String!): Palier
  acheterAngelUpgrade(name: String!): Palier
+ utiliserUnlock(name: String!) : Palier
  resetWorld: World
  calcScore: World
 }

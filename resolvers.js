@@ -38,7 +38,7 @@ module.exports = {
             produit.quantite += args.quantite;
 
             // Mettre à jour le coût d'achat du produit
-            produit.cout = Math.pow(1 + produit.croissance, args.quantite) * produit.cout;
+            produit.cout = parseFloat(Math.pow(1 + produit.croissance, args.quantite) * produit.cout).toFixed(2);
 
             // Sauvegarder les changements dans le monde
             //context.world.lastupdate = Date.now().toString();
@@ -51,7 +51,9 @@ module.exports = {
         lancerProductionProduit(parent, args, context, info) {
             const produit = context.world.products.find(p => p.id === args.id);
             produit.timeleft = produit.vitesse;
-          //  this.calcScore(parent, args, context)
+            context.world.lastupdate=Date.now();
+            saveWorld(context)
+         return produit
         },
 
         engagerManager(parent, args, context, info) {
@@ -80,6 +82,7 @@ module.exports = {
 
             // Sauvegarder les changements dans le monde
           //  context.world.lastupdate = Date.now().toString();
+            context.world.lastupdate=Date.now();
             saveWorld(context);
 
 
@@ -90,7 +93,7 @@ module.exports = {
 
         calcScore(parent, args, context, info) {
             const produits = context.world.products;
-            const elapsetime = Date.now() - parseInt(context.world.lastupdate);
+            const elapsetime = Date.now() - context.world.lastupdate;
             for (let p of produits) {
                 if (p.managerUnlocked) {
                     nb_p_produits = Math.floor(elapsetime / p.vitesse);
@@ -100,17 +103,45 @@ module.exports = {
                     context.world.money += argent_gagne;
                 } else {
                     if (p.timeleft !== 0) {
-                        p.quantite = p.quantite + 1;
-                        argent_gagne = 1 * p.revenu;
-                        context.world.money = context.world.money + argent_gagne;
                         p.timeleft -= elapsetime
-
-                    } else {
+                        if (p <= 0){
+                            p.quantite=+1
+                        }
+                            } else {
                     }
                 }
             }
             context.world.lastupdate = Date.now().toString();
             saveWorld(context);
+        },
+
+        utiliserUnlock(parent, args, context, info){
+            // product => product.paliers.find(palier => palier.name.includes(nomManager))
+            const unlock =   context.world.allunlocks.find(unlock => unlock.name== args.name);
+            const product = context.world.products.find(product => product.paliers.find(palier => palier.name.includes(unlock.name)));
+            //on vérifie que le unlock soit pas déjà utilisé
+            if (!unlock.unlocked){
+        if (unlock.typeratio =='gain') {
+            product.revenu = Math.round(product.revenu * unlock.ratio);
+        }
+        if (unlock.typeratio=='vitesse'){
+            // produit pas en production
+            if (product.timeleft==0){
+                //je divise la vitesse du produit par le bonus obtenu
+                product.vitesse = Math.round(product.vitesse/unlock.ratio);
+            }
+            //produit en production
+            else{
+                //double bonus
+                // on diminue le temps de la production en cours
+                product.timeleft=Math.round(product.timeleft/unlock.ratio);
+                //on divise aussi la vitesse du produit par le bonuus
+                product.vitesse = Math.round(product.vitesse/unlock.ratio);
+            }
+        }
+        unlock.unlocked=true;}
+        saveWorld(context)
+        return product
         }
 
     }

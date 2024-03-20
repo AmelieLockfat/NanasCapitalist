@@ -71,6 +71,11 @@ export class AppComponent {
       console.log("erreur: " + reason)
     );
   }
+  utiliserUnlock(unlock : Palier){
+    this.service.utiliserUnlock(unlock).catch(reason =>
+        console.log("erreur: " + reason)
+    );
+  }
 
   onMultiplicateurClick() {
     if (this.multiplicateurService.multiplicateurValue === 1) {

@@ -75,3 +75,11 @@ acheterQtProduit(id : $id, quantite : $quantite) {
  }
  }
   `
+
+export const UTILISER_UNLOCK = gql`
+ mutation utiliserUnlock($name : String!) {
+utiliserUnlock(name : $name) {
+ name
+ }
+ }
+  `
