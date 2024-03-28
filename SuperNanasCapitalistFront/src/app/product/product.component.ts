@@ -1,10 +1,9 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component,OnInit, Input,Output, EventEmitter} from '@angular/core';
 import {Product} from "../../../../world";
 import {WebserviceService} from "../webservice.service";
 import {MatProgressBarModule} from '@angular/material/progress-bar'
 import { MyProgressBarComponent } from './progressbar.component';
 import {MultiplicateurService} from "../MultiplicateurService";
-import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -20,7 +19,18 @@ export class ProductComponent {
   progressbarvalue=0;
   lastupdate =0;
 
+  initialValue = 0
+  run = false
+  vitesse: number = 0
+  auto = false
 
+
+
+  ngOnInit(){
+    setInterval(() => {
+      this.calcScore();
+    }, 100);
+  }
 
   @Input()
   set prod(value: Product) {
@@ -28,6 +38,7 @@ export class ProductComponent {
     if (!this.product) this.product = new Product()
    // console.log(this.product)
   }
+
 
 
 
@@ -46,48 +57,37 @@ acheterQtProduit(product : Product){
   this.service.acheterQtProduit(this.product.id, this.multiplicateurService.multiplicateurValue ).catch(reason =>
   console.log("erreur: " + reason)
 );}
-
-calcScore(){
-    this.product.lastupdate = Date.now();
-
-    if (this.product.timeleft === 0) {
-        // ne rien faire si le produit n'est pas en cours de production
-        return;
-    } else {
-        const tempsEcoule = Date.now() - this.product.lastupdate;
-        this.product.timeleft -= tempsEcoule;
-        
-        if (this.product.timeleft <= 0) {
-          const moneyEanerd = this.product.cout;
-            // Si timeleft est devenu nul ou négatif
-            // Remettez la barre de production à zéro
-            this.progressbarvalue = 0;
-            // Remettez timeleft à zéro
-            this.product.timeleft = 0;
-            this.notifyProduction.emit(this.product);
-
+  calcScore() {
+    let elapsedTime = Date.now() - this.product.lastupdate;
+    if (!this.product.managerUnlocked) { // Si aucun manager n'est débloqué
+      if (this.product.timeleft !== 0) { // Si le produit est en cours de production
+        this.product.lastupdate = Date.now(); // Mettre à jour la dernière mise à jour sinon lastupdate ne fait qu'augmenter
+        if (this.product.timeleft <= elapsedTime) { // Si le produit a eu le temps d'être créé
+          this.product.timeleft = 0;
+          this.notifyProduction.emit(this.product);
+          this.run = false;
+          // Informer le monde qu'il faut ajouter le revenu du produit au score du monde
         } else {
-            // Si timeleft est strictement positif
-            // Calcul de la nouvelle valeur de la barre de progression
-            this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
-        }// on prévient le composant parent que ce produit a généré son revenu.
-    
+          this.product.timeleft -= elapsedTime; // Mettre à jour le temps restant
+          // Mettre à jour la barre de progression
+          this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
+        }
       }
+    } else { // S'il y a un manager
+      let createdObjects = Math.floor(elapsedTime / this.product.vitesse);
+      this.product.timeleft = this.product.vitesse - (elapsedTime % this.product.vitesse);
+      for (let i = 0; i < createdObjects; i++) {
+        this.notifyProduction.emit(this.product);
+      } // Informer le monde à chaque produit créé
+      this.product.lastupdate = Date.now();
     }
+  }
 
 //déclarez un évènement de sortie
-@Output() 
-notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
+@Output() notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
 
 
-ngOnInit(){
-  setInterval(() => { 
-    this.calcScore(); 
-  }, 100);
-}
 
 }
-function Output(): (target: ProductComponent, propertyKey: "notifyProduction") => void {
-  throw new Error('Function not implemented.');
-}
+
 

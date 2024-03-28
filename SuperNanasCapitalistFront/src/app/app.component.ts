@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component,Output, Inject} from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import {World,Palier,Product} from "../../../world";
 import {WebserviceService} from "./webservice.service";
@@ -88,12 +88,12 @@ export class AppComponent {
     }
   }
 
-  onProductionDone(p :Product){
-    // Augmenter l'argent du joueur avec le revenu (cout)
-    this.world.money += p.revenu;
+  onProductionDone(p: Product) {
+    this.world.score += p.revenu
+    this.world.money += p.revenu
+  }
 
-  }
-  }
-  
+}
+
 
 
