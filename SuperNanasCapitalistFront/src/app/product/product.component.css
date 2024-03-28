@@ -15,9 +15,10 @@
 
 }
 .product-details{
-    margin: 10px;
+    margin: 10px;}
 
-}
+
+
 td {
   border: 1px solid #ddd;
   padding: 30px;
@@ -30,6 +31,13 @@ td {
 
 
   }
+.product-details {
+
+  background: linear-gradient(70deg, white, pink);
+  border-radius: 20%;
+  padding: 14px;
+}
+
   button span {
     cursor: pointer;
     display: inline-block;
@@ -69,7 +77,7 @@ td {
 
 /*.progressbar{
   background-color: #DD2476;
-  width: 100%;  Utilisez la largeur totale de la case parente 
+  width: 100%;  Utilisez la largeur totale de la case parente
   height: 10px;
 }*/
 

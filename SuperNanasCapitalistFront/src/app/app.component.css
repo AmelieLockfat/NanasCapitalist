@@ -5,13 +5,9 @@
 .main {
     display: grid;
     grid-template-columns: 20% 80%;
+
  }
 
- .product {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 50%;
-}
 .dessus{
   position: fixed;
   background-color: #ffccdc;
@@ -47,8 +43,7 @@
   padding: 10px;
 }
 .yeah {
-  background-image: url('../../../public/icones/background.jpg');
-  backdrop-filter: blur(10px); /* Flou de l'arrière-plan */
+  background-image: url('../../../public/icones/bg.png');
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,11 +58,18 @@
   width: 300px; /* Définit la largeur de l'image à 200 pixels */
   height: auto;
 }
-#logoWorld{
-  height: 100px;
+#logoWorld {
+  height: 100px; /* Définissez la hauteur souhaitée */
   border-radius: 50%;
-  text-align: center;
+  vertical-align: middle; /* Aligner verticalement au centre */
 }
+
+
+.product {
+  margin: 0 auto; /* cela centre le conteneur horizontalement */
+  width: fit-content; /* cela fait en sorte que la largeur du conteneur s'adapte à son contenu */
+}
+
 .name{
   display: flex;
   align-items: center
@@ -79,12 +81,7 @@
   border-collapse: collapse;
 }
 
-.product-table td {
 
-  background: linear-gradient(70deg, white, pink);
-  border-radius: 20%;
-  margin : 30px;
-}
 
 .product {
   margin: 10px;
@@ -139,6 +136,12 @@
   border-collapse: collapse;
 
 }
+.bouton {
+  display: flex; /* Utilisez flexbox pour aligner verticalement les éléments enfants */
+  align-items: center;
+
+}
+
 
 .boutonunlocks,
 .boutoncash,
