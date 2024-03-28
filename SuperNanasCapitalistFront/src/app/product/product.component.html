@@ -21,9 +21,11 @@
             <app-my-progress-bar [run]="run" [auto]="auto"
             frontcolor="#008800"
             backcolor="#DD2476"
-
-            [vitesse]="vitesse"
-            [initialValue]="initialValue">
+            [orientation]="orientation"
+            [vitesse]="product.vitesse"
+            [initialValue]="initialValue"
+            [style.background-color]="'#C0C0C0'"
+            [style.width]="'100%'">
 </app-my-progress-bar>
          <!--<mat-progress-bar [value]="progressbarvalue" title="progression" ></mat-progress-bar></div>-->
           <!--</div>--></div></td>

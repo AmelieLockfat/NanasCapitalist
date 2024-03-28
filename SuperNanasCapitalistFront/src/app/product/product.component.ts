@@ -2,7 +2,7 @@ import {Component,OnInit, Input,Output, EventEmitter} from '@angular/core';
 import {Product} from "../../../../world";
 import {WebserviceService} from "../webservice.service";
 import {MatProgressBarModule} from '@angular/material/progress-bar'
-import { MyProgressBarComponent } from './progressbar.component';
+import {MyProgressBarComponent, Orientation} from './progressbar.component';
 import {MultiplicateurService} from "../MultiplicateurService";
 
 @Component({
@@ -23,7 +23,7 @@ export class ProductComponent {
   run = false
   vitesse: number = 0
   auto = false
-
+  orientation = Orientation.horizontal
 
 
   ngOnInit(){
@@ -88,6 +88,15 @@ acheterQtProduit(product : Product){
 
 
 
+  setProgress(value: number) {
+    if (value >= 0 && value <= 100) {
+      this.progressbarvalue = value;
+    } else if (value < 0) {
+      this.progressbarvalue = 0;
+    } else {
+      this.progressbarvalue = 100;
+    }
+  }
 }
 
 
