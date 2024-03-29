@@ -8,7 +8,7 @@
 
  }
 
-.dessus{
+.dessus{ /*page superposée*/
   position: fixed;
   background-color: #ffccdc;
   z-index: 2; /* au dessus du reste */
@@ -133,6 +133,7 @@
 /*PARTIE LISTE BOUTONS A GAUCHE */
 
 .listeboutons {
+
   border-collapse: collapse;
 
 }
@@ -149,7 +150,7 @@
 .boutonManagers,
 .boutoninvestors {
   width: 170px;
-  background-image: linear-gradient(to right, #ff9c88 0%, #f39dc4  51%, #ffa390  100%);
+  background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
     margin: 10px;
     padding: 15px 45px;
     text-align: center;

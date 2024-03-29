@@ -62,7 +62,6 @@ export class WebserviceService {
 
 
   acheterQtProduit(id:number, quantite: number) {
-    console.log(id,quantite)
     return this.createClient().mutation(ACHETER_PRODUIT, {id :id, quantite: quantite}).toPromise();
   }
 }

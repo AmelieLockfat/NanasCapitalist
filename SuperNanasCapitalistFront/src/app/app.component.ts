@@ -93,6 +93,10 @@ export class AppComponent {
     this.world.money += p.revenu
   }
 
+  
+  onBuy(coutTot: number) {
+    this.world.money -= coutTot * this.multiplicateurService.multiplicateurValue;
+  }
 }
 
 

@@ -25,6 +25,12 @@ export class ProductComponent {
   auto = false
   orientation = Orientation.horizontal
 
+  
+  _money: number =0;
+  @Input()
+  set money(value: number) {
+    this._money = value;
+  }
 
   ngOnInit(){
     setInterval(() => {
@@ -45,6 +51,7 @@ export class ProductComponent {
 
   constructor(private service: WebserviceService, public multiplicateurService : MultiplicateurService) {
   }
+
  lancerProduction(product : Product){
     this.service.lancerProduction(this.product).catch(reason =>
    console.log("erreur: " + reason)
@@ -52,11 +59,16 @@ export class ProductComponent {
 
 
 acheterQtProduit(product : Product){
+  if(this._money >= this.multiplicateurService.multiplicateurValue * this.product.cout){
+
   console.log(product);
   console.log(this.product)
   this.service.acheterQtProduit(this.product.id, this.multiplicateurService.multiplicateurValue ).catch(reason =>
-  console.log("erreur: " + reason)
-);}
+  console.log("erreur: " + reason))
+  this.notifyBuy.emit(this.product.cout);
+}
+}
+
   calcScore() {
     let elapsedTime = Date.now() - this.product.lastupdate;
     if (!this.product.managerUnlocked) { // Si aucun manager n'est débloqué
@@ -85,8 +97,19 @@ acheterQtProduit(product : Product){
 
 //déclarez un évènement de sortie
 @Output() notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
+@Output() notifyBuy: EventEmitter<any> = new EventEmitter<any>();
 
+BuyProduct(){
+  if(this._money >= this.multiplicateurService.multiplicateurValue * this.product.cout){
+    this.product.quantite += this.multiplicateurService.multiplicateurValue
+    let coutTot= this.multiplicateurService.multiplicateurValue * this.product.cout
+    this.notifyBuy.emit(coutTot);
+    this.acheterQtProduit(this.product);
+    
+  }else{
 
+  }
+}
 
   setProgress(value: number) {
     if (value >= 0 && value <= 100) {
