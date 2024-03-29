@@ -2,63 +2,62 @@
 
 <div class="yeah">
 
-<div class="header">
-  <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/> <img id="nameWorld" [src]="server+ 'icones/worldname.png'"/> </div>
+  <div class="header">
+    <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/> <img id="nameWorld" [src]="server+ 'icones/worldname.png'"/> </div>
 
-<div> <span id="worldmoney" > {{world.money|bigvalue}}</span> </div>
+    <div> <span id="worldmoney" > {{world.money|bigvalue}}</span> </div>
 
-  <div> <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicateur : {{ multiplicateurService.multiplicateurValue }}</button> </div>
-  <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
-  <button class="multiplicateur" (click)="reloadPage()">Charger mon monde</button></div>
+    <div> <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicateur : {{ multiplicateurService.multiplicateurValue }}</button> </div>
+    <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
+      <button class="multiplicateur" (click)="reloadPage()">Charger mon monde</button></div>
 
-</div>
-  <div class="main">
+  </div>
+    <div class="main">
 
-    <div class="bouton">
-      <table class="listeboutons">
-        <tbody>
-          <tr>
+      <div class="bouton">
+        <table class="listeboutons">
+          <tbody>
+            <tr>
             <td><button class="boutonunlocks" type="button" (click)="toggleUnlocksSection()">Unlocks</button></td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
             <td><button class="boutoncash" type="button">Cash Upgrades</button></td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
             <td><button class="boutonangel" type="button">Angel Upgrades</button></td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
             <td><button class="boutonManagers" type="button" (click)="toggleManagersSection()">Managers</button></td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
             <td><button class="boutoninvestors" type="button">Investors</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <div class="product" style="margin: 0 auto; width: fit-content;">
-    <table class="product-table">
+      <div class="product" style="margin: 0 auto; width: fit-content;">
+        <table class="product-table">
+        <tbody>
+        <tr>
+        <td><div> <app-product [money]="world.money" [prod]="world.products[0]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product></div></td>
+        <td><div> <app-product [money]="world.money" [prod]="world.products[1]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product> </div></td>
+        <td><div> <app-product  [money]="world.money" [prod]="world.products[2]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product></div></td>
+        </tr>
 
-      <tbody>
-      <tr>
-
-      <td><div> <app-product [money]="world.money" [prod]="world.products[0]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product></div></td>
-      <td><div> <app-product [money]="world.money" [prod]="world.products[1]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product> </div></td>
-      <td><div> <app-product  [money]="world.money" [prod]="world.products[2]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product></div></td>
-
-
-      </tr>
-
-      <tr>
+        <tr>
         <td><div> <app-product [money]="world.money" [prod]="world.products[3]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product> </div></td>
         <td><div><app-product  [money]="world.money" [prod]="world.products[4]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product></div></td>
         <td><div><app-product [money]="world.money" [prod]="world.products[5]"class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product> </div></td>
 
-      </tr>
+        </tr>
 
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+        </table>
+      </div>
+  
+
+<!------------------- MANAGERS ------------------->
 @if (showManagersSection) {
     <div class="dessus" >
         <h2 class="PageTitle"> Les Managers sont là pour vous aider ! </h2>
@@ -75,7 +74,7 @@
 
       <button class="boutonengager" (click)="engagerManager(manager)"> Engager {{manager.name}} </button>
       }} </ul>
-      </div>
+  </div>
        <div class="column">
 <ul>
       @for (manager of world.managers;let index = $index; track manager.idcible){
@@ -89,22 +88,40 @@
     </div> </div>
 </div>}
 
-    @if(showUnlocksSection){
-    <div class="dessus" >
-    <h2 class="PageTitle"> Avec les unlocks, vous serez riches d'ici ce soir ! </h2>
-                    <button class="close-button" (click)="toggleUnlocksSection()">X</button>
+<!--------------------- UNLOCKS--------------------->
+@if(showUnlocksSection){
+  <div class="dessus" >
+    <h2 class="PageTitle"> Avec les Unlocks, vous serez riches d'ici ce soir ! </h2>
+            <button class="close-button" (click)="toggleUnlocksSection()">X</button>
 
-    <div>
-     @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
+<div class="colonnes" style="display: flex;">
+    <div class="column">
+      <ul >
+        @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
+          @if (!unlock.unlocked && index % 2 === 0) {
+          <li style="margin: 15px;">
+            <img class="round" [src]="server + unlock.logo"/> {{unlock.name}}
+          </li>
+          <button class="boutondebloquer" > Débloquer {{unlock.name}} </button>
+          }
+        }
+      </ul>
+    </div>
 
-
-    {{unlock.name}}
-
-
-    }</div></div>}
-
-
-
-
+  <div class="column">
+    <ul>
+      @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
+        @if (!unlock.unlocked && index % 2 === 1) {
+          <li style="margin: 15px;">
+            <img class="round" [src]="server + unlock.logo"/>{{unlock.name}}
+          </li>
+          <button class="boutondebloquer" > Débloquer  {{unlock.name}}</button>
+          }
+        }
+      </ul>
+  </div>
+  </div>
 </div>
 
+}  
+</div>
