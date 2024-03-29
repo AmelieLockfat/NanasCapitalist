@@ -41,6 +41,7 @@ module.exports = {
             produit.cout = parseFloat(Math.pow(1 + produit.croissance, args.quantite) * produit.cout).toFixed(2);
 
             // Sauvegarder les changements dans le monde
+
             //context.world.lastupdate = Date.now().toString();
              saveWorld(context);
             // Retourner le produit mis à jour
@@ -117,7 +118,7 @@ module.exports = {
 
         utiliserUnlock(parent, args, context, info){
             // product => product.paliers.find(palier => palier.name.includes(nomManager))
-            const unlock =   context.world.allunlocks.find(unlock => unlock.name== args.name);
+            const unlock =   context.world.allunlocks.find(unlock => unlock.name=== args.name);
             const product = context.world.products.find(product => product.paliers.find(palier => palier.name.includes(unlock.name)));
             //on vérifie que le unlock soit pas déjà utilisé
             if (!unlock.unlocked){
@@ -142,9 +143,36 @@ module.exports = {
         unlock.unlocked=true;}
         saveWorld(context)
         return product
-        }
+        },
 
-    }
+        utiliserCashUpgrade(parent, args, context, info){
+            const upgrade =   context.world.upgrades.find(upgrade => upgrade.name === args.name);
+            const product = context.world.products.find(product => product.paliers.find(palier => palier.name.includes(upgrade.name)));
+            if (!upgrade.unlocked){
+                if (upgrade.typeratio=='gain') {
+                    product.revenu = Math.round(product.revenu * upgrade.ratio);
+                }
+                if (upgrade.typeratio=='vitesse') {
+                    // produit pas en production
+                    if (product.timeleft==0){
+                        //je divise la vitesse du produit par le bonus obtenu
+                        product.vitesse = Math.round(product.vitesse/upgrade.ratio);
+                    }
+                } else{
+                    //double bonus
+                    // on diminue le temps de la production en cours
+                    product.timeleft=Math.round(product.timeleft/upgrade.ratio);
+                    //on divise aussi la vitesse du produit par le bonuus
+                    product.vitesse = Math.round(product.vitesse/upgrade.ratio);
+                }
+                upgrade.unlocked=true;}
+            saveWorld(context)
+            return product
+            }
+
+                }
+
+
 }
 
 ;
