@@ -106,7 +106,7 @@
   border-collapse: collapse;
 }
 .product {
-  margin: 10px;
+  margin: 0px;
 }
 .multiplicateur {
     background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);

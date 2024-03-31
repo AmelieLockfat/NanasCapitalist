@@ -10,9 +10,37 @@ function saveWorld(context) {
             }
         })
 }
+function calcScore(context) {
+    console.log(context)
+    const produits = context.world.products;
+    const elapsetime = Date.now() - context.world.lastupdate;
+    for (let p of produits) {
+        if (p.managerUnlocked) {
+            nb_p_produits = Math.floor(elapsetime / p.vitesse);
+            // Augmenter la quantité du produit
+            argent_gagne = nb_p_produits * p.revenu*p.quantite;
+            context.world.money = Number(context.world.money ) +argent_gagne;
+        } else {
+            if (p.timeleft !== 0) {
+                p.timeleft -= elapsetime
+                if (p.timeleft <= 0){
+                    p.timeleft = 0;
+                    argent_gagne = p.quantite * p.revenu;
+                    console.log(typeof argent_gagne)
+                    console.log(typeof context.world.money)
+                    context.world.money = Number(context.world.money ) +argent_gagne;
+                }
+            }
+        }
+    }
+    context.world.lastupdate = Date.now();
+    console.log(context)
+    saveWorld(context);
+}
 module.exports = {
     Query: {
         getWorld(parent, args, context, info) {
+            calcScore(context)
             saveWorld(context)
             return context.world
         }
@@ -51,6 +79,7 @@ module.exports = {
 
         lancerProductionProduit(parent, args, context, info) {
             const produit = context.world.products.find(p => p.id === args.id);
+            calcScore(context)
             produit.timeleft = produit.vitesse;
             context.world.lastupdate = Date.now();
             saveWorld(context)
@@ -92,30 +121,6 @@ module.exports = {
         ,
 
 
-        calcScore(parent, args, context, info) {
-            const produits = context.world.products;
-            const elapsetime = Date.now() - context.world.lastupdate;
-            for (let p of produits) {
-                if (p.managerUnlocked) {
-                    nb_p_produits = Math.floor(elapsetime / p.vitesse);
-                    // Augmenter la quantité du produit
-                    p.quantite += nb_p_produits;
-                    argent_gagne = nb_p_produits * p.revenu;
-                    context.world.money += argent_gagne;
-                } else {
-                    if (p.timeleft !== 0) {
-                        p.timeleft -= elapsetime
-                        if (elapsetime <= 0){
-                            argent_gagne = p.quantite * p.revenu;
-                            context.world.money += argent_gagne;
-                        }
-                            } else {
-                    }
-                }
-            }
-            context.world.lastupdate = Date.now();
-            saveWorld(context);
-        },
 
         utiliserUnlock(parent, args, context, info){
             // product => product.paliers.find(palier => palier.name.includes(nomManager))

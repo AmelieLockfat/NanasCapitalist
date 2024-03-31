@@ -82,7 +82,7 @@ module.exports = {
         {"id": 3,
             "name": "Perles" ,
             "logo": "icones/perles.jpg",
-            "cout": 0,
+            "cout": 10,
             "croissance": 0.05,
             "revenu": 8,
             "vitesse": 5000,
@@ -100,7 +100,7 @@ module.exports = {
         {"id": 4,
             "name": "Sceau" ,
             "logo": "icones/sceau.jpg",
-            "cout": 0,
+            "cout": 5000,
             "croissance": 0.05,
             "revenu": 4320,
             "vitesse": 5000,
@@ -153,11 +153,55 @@ module.exports = {
             ]}],
     "allunlocks": [
         {
-            "name": "tele",
-            "logo": "icones/premierunlock.jpg",
+            "name": "Poulpe Riche",
+            "logo": "icones/poulperiche.jpg",
             "seuil": 30,
             "idcible": 1,
             "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "Super Nana au Téléphone",
+            "logo": "icones/powerpuffphone.png",
+            "seuil": 30,
+            "idcible": 2,
+            "ratio": 2,
+            "typeratio": "vitesse",
+            "unlocked": false
+        },
+        {
+            "name": "La main au bracelet",
+            "logo": "icones/lamainaubracelet.png",
+            "seuil": 50,
+            "idcible": 3,
+            "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "Chateau de sable mimi",
+            "logo": "icones/chateaudesable.jpg",
+            "seuil": 40,
+            "idcible": 4,
+            "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "Amour de soeurs",
+            "logo": "icones/sisterhood.png",
+            "seuil": 1000,
+            "idcible": 5,
+            "ratio": 3,
+            "typeratio": "gain",
+            "unlocked": false
+        },{
+            "name": "Belle sans noeud",
+            "logo": "icones/bellesansnoeud.png",
+            "seuil": 1500,
+            "idcible": 6,
+            "ratio": 3,
             "typeratio": "gain",
             "unlocked": false
         }

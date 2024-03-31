@@ -38,6 +38,7 @@ export class AppComponent {
     service.getWorld().then(
       world => {
         this.world = world.data.getWorld
+        console.log(this.world.allunlocks)
       });
     this.showContent = true
   }
@@ -97,8 +98,8 @@ export class AppComponent {
   }
 
   onProductionDone(p: Product) {
-    this.world.score += p.revenu
-    this.world.money += p.revenu
+    this.world.score += p.revenu*p.quantite
+    this.world.money += p.revenu*p.quantite
   }
 
 

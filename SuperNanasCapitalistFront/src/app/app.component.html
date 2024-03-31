@@ -101,8 +101,8 @@
           @if (!unlock.unlocked && index % 2 === 0) {
           <li style="margin: 15px;">
             <img class="round" [src]="server + unlock.logo"/> {{unlock.name}}
+            donne x{{unlock.ratio}} pour {{unlock.seuil}} {{unlock.idcible}}
           </li>
-          <button class="boutondebloquer" > Débloquer {{unlock.name}} </button>
           }
         }
       </ul>
@@ -115,7 +115,6 @@
           <li style="margin: 15px;">
             <img class="round" [src]="server + unlock.logo"/>{{unlock.name}}
           </li>
-          <button class="boutondebloquer" > Débloquer  {{unlock.name}}</button>
           }
         }
       </ul>
