@@ -1,4 +1,4 @@
-import {Component,Output, Inject} from '@angular/core';
+import {Component, Output, Inject, EventEmitter} from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import {World,Palier,Product} from "../../../world";
 import {WebserviceService} from "./webservice.service";
@@ -29,6 +29,8 @@ export class AppComponent {
 
 
   showContent
+
+
 
   constructor(private service: WebserviceService, private router: Router, public multiplicateurService : MultiplicateurService) {
  this.multiplicateurService=multiplicateurService;
@@ -69,8 +71,14 @@ export class AppComponent {
   engagerManager(manager: Palier) {
     this.service.engagerManager(manager).catch(reason =>
       console.log("erreur: " + reason)
-    );
+    )
+    this.onEngager.emit(manager);
+
   }
+  argentPourManager(manager : Palier){
+    return this.world.money >= manager.seuil
+  }
+
   utiliserUnlock(unlock : Palier){
     this.service.utiliserUnlock(unlock).catch(reason =>
         console.log("erreur: " + reason)
@@ -93,10 +101,13 @@ export class AppComponent {
     this.world.money += p.revenu
   }
 
-  
+
   onBuy(coutTot: number) {
     this.world.money -= coutTot * this.multiplicateurService.multiplicateurValue;
   }
+
+  @Output() onEngager: EventEmitter<Palier> = new EventEmitter<Palier>();
+
 }
 
 

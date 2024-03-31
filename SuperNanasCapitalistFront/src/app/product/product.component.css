@@ -20,7 +20,6 @@
 
 
 td {
-  border: 1px solid #ddd;
   padding: 30px;
 }
 .button{
@@ -84,7 +83,7 @@ td {
 .progress-bar {
   width: 100%; /* Largeur totale de la barre de progression */
   height: 20px; /* Hauteur de la barre de progression */
-  background-color: #FF512F; /* Couleur de fond de la barre de progression */
+  background-color: gray ;/* Couleur de fond de la barre de progression */
   border-radius: 5px; /* Bord arrondi de la barre de progression */
 }
 

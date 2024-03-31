@@ -52,7 +52,7 @@ module.exports = {
         lancerProductionProduit(parent, args, context, info) {
             const produit = context.world.products.find(p => p.id === args.id);
             produit.timeleft = produit.vitesse;
-            context.world.lastupdate=Date.now();
+            context.world.lastupdate = Date.now();
             saveWorld(context)
          return produit
         },
@@ -105,14 +105,15 @@ module.exports = {
                 } else {
                     if (p.timeleft !== 0) {
                         p.timeleft -= elapsetime
-                        if (p <= 0){
-                            p.quantite=+1
+                        if (elapsetime <= 0){
+                            argent_gagne = p.quantite * p.revenu;
+                            context.world.money += argent_gagne;
                         }
                             } else {
                     }
                 }
             }
-            context.world.lastupdate = Date.now().toString();
+            context.world.lastupdate = Date.now();
             saveWorld(context);
         },
 

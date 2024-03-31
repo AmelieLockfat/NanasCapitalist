@@ -55,7 +55,7 @@
         </tbody>
         </table>
       </div>
-  
+
 
 <!------------------- MANAGERS ------------------->
 @if (showManagersSection) {
@@ -72,7 +72,7 @@
     <img class="round" [src]="server + manager.logo"/>
      {{manager.name}}</li>
 
-      <button class="boutonengager" (click)="engagerManager(manager)"> Engager {{manager.name}} </button>
+      <button class="boutonengager" (click)="engagerManager(manager)" [disabled]="!argentPourManager(manager)"> Engager {{manager.name}} pour {{manager.seuil}}$ </button>
       }} </ul>
   </div>
        <div class="column">
@@ -83,7 +83,7 @@
     <img class="round" [src]="server + manager.logo"/>
     {{manager.name}}</li>
 
-      <button class="boutonengager" (click)="engagerManager(manager)"> Engager  {{manager.name}}</button>
+      <button class="boutonengager" (click)="engagerManager(manager)" [disabled]="!argentPourManager(manager)"> Engager {{manager.name}} pour {{manager.seuil}}$</button>
     }}</ul>
     </div> </div>
 </div>}
@@ -123,5 +123,5 @@
   </div>
 </div>
 
-}  
+}
 </div>

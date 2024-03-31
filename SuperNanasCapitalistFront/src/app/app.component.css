@@ -52,6 +52,14 @@
 .boutonengager:hover {
   box-shadow: inset 400px 0 0 0 #D80286;
 }
+.boutonengager:hover:disabled {
+  box-shadow: none;
+}
+
+.boutonengager:disabled{
+  background-color: #cccccc;
+  color: #666666;
+}
 
 
 .column {
@@ -79,6 +87,8 @@
   border-radius: 50%;
   vertical-align: middle; /* Aligner verticalement au centre */
 }
+
+
 
 
 .product {

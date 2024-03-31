@@ -17,7 +17,16 @@ export class ProductComponent {
   server : String='http://localhost:4000/';
   api="https://isiscapitalistgraphql.kk.kurasawa.fr/";
   progressbarvalue=0;
-  lastupdate =0;
+  setProgress(value: number) {
+    if (value >= 0 && value <= 100) {
+      this.progressbarvalue = value;
+    } else if (value < 0) {
+      this.progressbarvalue = 0;
+    } else {
+      this.progressbarvalue = 100;
+    }
+  }
+  lastupdate = Date.now();
 
   initialValue = 0
   run = false
@@ -25,7 +34,7 @@ export class ProductComponent {
   auto = false
   orientation = Orientation.horizontal
 
-  
+
   _money: number =0;
   @Input()
   set money(value: number) {
@@ -34,7 +43,9 @@ export class ProductComponent {
 
   ngOnInit(){
     setInterval(() => {
-      this.calcScore();
+      if(this.product.id!=0){
+        this.calcScore();
+      }
     }, 100);
   }
 
@@ -50,9 +61,13 @@ export class ProductComponent {
 
 
   constructor(private service: WebserviceService, public multiplicateurService : MultiplicateurService) {
+
   }
 
  lancerProduction(product : Product){
+    this.run = true
+   this.product.timeleft = this.product.vitesse
+   this.product.lastupdate = Date.now()
     this.service.lancerProduction(this.product).catch(reason =>
    console.log("erreur: " + reason)
  );}
@@ -66,10 +81,15 @@ acheterQtProduit(product : Product){
   this.service.acheterQtProduit(this.product.id, this.multiplicateurService.multiplicateurValue ).catch(reason =>
   console.log("erreur: " + reason))
   this.notifyBuy.emit(this.product.cout);
+  this.product.quantite +=1;
+
 }
 }
 
   calcScore() {
+    if(isNaN(this.product.lastupdate)){
+      this.product.lastupdate = Date.now()
+    }
     let elapsedTime = Date.now() - this.product.lastupdate;
     if (!this.product.managerUnlocked) { // Si aucun manager n'est débloqué
       if (this.product.timeleft !== 0) { // Si le produit est en cours de production
@@ -86,6 +106,8 @@ acheterQtProduit(product : Product){
         }
       }
     } else { // S'il y a un manager
+      this.run = true;
+      this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
       let createdObjects = Math.floor(elapsedTime / this.product.vitesse);
       this.product.timeleft = this.product.vitesse - (elapsedTime % this.product.vitesse);
       for (let i = 0; i < createdObjects; i++) {
@@ -105,21 +127,12 @@ BuyProduct(){
     let coutTot= this.multiplicateurService.multiplicateurValue * this.product.cout
     this.notifyBuy.emit(coutTot);
     this.acheterQtProduit(this.product);
-    
+
   }else{
 
   }
 }
 
-  setProgress(value: number) {
-    if (value >= 0 && value <= 100) {
-      this.progressbarvalue = value;
-    } else if (value < 0) {
-      this.progressbarvalue = 0;
-    } else {
-      this.progressbarvalue = 100;
-    }
-  }
 }
 
 
