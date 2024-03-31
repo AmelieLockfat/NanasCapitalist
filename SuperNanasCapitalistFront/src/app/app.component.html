@@ -21,7 +21,7 @@
             <td><button class="boutonunlocks" type="button" (click)="toggleUnlocksSection()">Unlocks</button></td>
             </tr>
             <tr>
-            <td><button class="boutoncash" type="button">Cash Upgrades</button></td>
+            <td><button class="boutoncash" type="button"(click) = "toggleCashUpgradesSection()">Cash Upgrades</button></td>
             </tr>
             <tr>
             <td><button class="boutonangel" type="button">Angel Upgrades</button></td>
@@ -70,9 +70,9 @@
       @if (!manager.unlocked && index % 2 === 0) {
     <li style="margin: 15px;">
     <img class="round" [src]="server + manager.logo"/>
-     {{manager.name}}</li>
+     {{manager.name}} / {{manager.nameProduit}}</li>
 
-      <button class="boutonengager" (click)="engagerManager(manager)" [disabled]="!argentPourManager(manager)"> Engager {{manager.name}} pour {{manager.seuil}}$ </button>
+      <button class="boutonengager" (click)="engagerManager(manager)" [disabled]="!argentPourPalier(manager)"> Engager pour {{manager.seuil}}$ </button>
       }} </ul>
   </div>
        <div class="column">
@@ -81,9 +81,9 @@
     @if (!manager.unlocked && index % 2 === 1) {
     <li style="margin: 15px;">
     <img class="round" [src]="server + manager.logo"/>
-    {{manager.name}}</li>
+    {{manager.name}} / {{manager.nameProduit}}</li>
 
-      <button class="boutonengager" (click)="engagerManager(manager)" [disabled]="!argentPourManager(manager)"> Engager {{manager.name}} pour {{manager.seuil}}$</button>
+      <button class="boutonengager" (click)="engagerManager(manager)" [disabled]="!argentPourPalier(manager)"> Engager pour {{manager.seuil}}$</button>
     }}</ul>
     </div> </div>
 </div>}
@@ -101,7 +101,7 @@
           @if (!unlock.unlocked && index % 2 === 0) {
           <li style="margin: 15px;">
             <img class="round2" [src]="server + unlock.logo"/> {{unlock.name}}
-            donne x{{unlock.ratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
+            donne x{{unlock.ratio}}  en {{unlock.typeratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
           </li>
           }
         }
@@ -114,7 +114,7 @@
         @if (!unlock.unlocked && index % 2 === 1) {
           <li style="margin: 15px;">
             <img class="round2" [src]="server + unlock.logo"/>{{unlock.name}}
-      donne x{{unlock.ratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
+      donne x{{unlock.ratio}}  en {{unlock.typeratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
           </li>
           }
         }
@@ -124,4 +124,46 @@
 </div>
 
 }
+
+
+
+      @if(showCashUpgradesSection){
+      <div class="dessus" >
+        <h2 class="PageTitle">  Achetez des upgrades, gagnez des sous ! </h2>
+                <button class="close-button" (click)="toggleCashUpgradesSection()">X</button>
+
+    <div class="colonnes" style="display: flex;">
+        <div class="column">
+          <ul >
+
+            @for (upgrade of world.upgrades;let index = $index; track upgrade.idcible){
+      @if (!upgrade.unlocked && index % 2 === 0) {
+      <li style="margin: 15px;">
+        <img class="round" [src]="server + upgrade.logo"/> {{upgrade.name}}
+      <button class="boutonengager" [disabled]="!argentPourPalier(upgrade)" > Acheter {{upgrade.name}} pour {{upgrade.seuil}}$</button>
+
+      </li>
+      }
+      }
+      </ul>
+    </div>
+
+  <div class="column">
+    <ul>
+      @for (upgrade of world.upgrades;let index = $index; track upgrade.idcible){
+      @if (!upgrade.unlocked && index % 2 === 1) {
+      <li style="margin: 15px;">
+         <img class="round" [src]="server + upgrade.logo"/> {{upgrade.name}}
+      <button class="boutonengager"  [disabled]="!argentPourPalier(upgrade)"> Acheter {{upgrade.name}} pour {{upgrade.seuil}}$</button>
+
+      </li>
+      }
+      }
+      </ul>
+  </div>
+  </div>
+</div>
+
+      }
+</div>
 </div>

@@ -8,6 +8,15 @@ export const GET_WORLD = gql`
   money
   score
   totalangels
+  upgrades{
+  name
+  logo
+  seuil
+  ratio
+  idcible
+  nameProduit
+  typeratio
+  unlocked}
   allunlocks{
   name
   logo
@@ -25,6 +34,7 @@ export const GET_WORLD = gql`
   logo
   seuil
   idcible
+  nameProduit
   ratio
   typeratio
   unlocked

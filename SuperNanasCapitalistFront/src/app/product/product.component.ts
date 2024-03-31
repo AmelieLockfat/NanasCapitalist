@@ -108,14 +108,20 @@ acheterQtProduit(product : Product){
         }
       }
     } else { // S'il y a un manager
-      this.run = true;
-      this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
-      let createdObjects = Math.floor(elapsedTime / this.product.vitesse);
-      this.product.timeleft = this.product.vitesse - (elapsedTime % this.product.vitesse);
-      for (let i = 0; i < createdObjects; i++) {
-        this.notifyProduction.emit(this.product);
-      } // Informer le monde à chaque produit créé
-      this.product.lastupdate = Date.now();
+      if(this.product.timeleft==0){
+        this.lancerProduction(this.product);
+      }else{
+        this.product.lastupdate = Date.now(); // Mettre à jour la dernière mise à jour sinon lastupdate ne fait qu'augmenter
+        if (this.product.timeleft <= elapsedTime) { // Si le produit a eu le temps d'être créé
+          this.product.timeleft = 0;
+          this.notifyProduction.emit(this.product);
+          // Informer le monde qu'il faut ajouter le revenu du produit au score du monde
+        } else {
+          this.product.timeleft -= elapsedTime; // Mettre à jour le temps restant
+          // Mettre à jour la barre de progression
+          this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
+        }
+      }
     }
   }
 

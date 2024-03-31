@@ -75,14 +75,14 @@ module.exports = {
 
         lancerProductionProduit(parent, args, context, info) {
             const produit = context.world.products.find(p => p.id === args.id);
-            calcScore(context)
+            calcScore(context);
             produit.timeleft = produit.vitesse;
-            saveWorld(context)
+            saveWorld(context);
          return produit
         },
 
         engagerManager(parent, args, context, info) {
-            calcScore(context)
+            calcScore(context);
             const nomManager = args.name;
             const manager = context.world.managers.find(manager => manager.name === nomManager);
             //Je cherche le produit géré par ce manager
@@ -103,7 +103,7 @@ module.exports = {
             manager.unlocked=true;
             palier.unlocked=true;
             // je perds de l'argent en payant mon manager
-            context.world.money -= prixManager;
+            context.world.money = Number(context.world.money)- prixManager;
             // je lance la prod
 
             // Sauvegarder les changements dans le monde
@@ -119,6 +119,7 @@ module.exports = {
 
 
         utiliserUnlock(parent, args, context, info){
+            calcScore(context);
             // product => product.paliers.find(palier => palier.name.includes(nomManager))
             const unlock =   context.world.allunlocks.find(unlock => unlock.name=== args.name);
             const unlockIdcible =unlock.idcible;
@@ -154,9 +155,11 @@ module.exports = {
         },
 
         utiliserCashUpgrade(parent, args, context, info){
+            calcScore(context);
             const upgrade =   context.world.upgrades.find(upgrade => upgrade.name === args.name);
             const product = context.world.products.find(product => product.paliers.find(palier => palier.name.includes(upgrade.name)));
             if (!upgrade.unlocked){
+                context.world.money= Number(context.world.money) - upgrade.seuil;
                 if (upgrade.typeratio=='gain') {
                     product.revenu = Math.round(product.revenu * upgrade.ratio);
                 }

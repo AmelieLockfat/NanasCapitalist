@@ -25,6 +25,7 @@ export class AppComponent {
 
   showManagersSection = false;
   showUnlocksSection = false;
+  showCashUpgradesSection = false;
 
 
 
@@ -64,6 +65,10 @@ export class AppComponent {
 
   }
 
+  toggleCashUpgradesSection() {
+    this.showCashUpgradesSection = !this.showCashUpgradesSection;
+
+  }
   toggleUnlocksSection() {
     this.showUnlocksSection= !this.showUnlocksSection;
 
@@ -75,8 +80,8 @@ export class AppComponent {
     )
     manager.unlocked=true;
   }
-  argentPourManager(manager : Palier){
-    return this.world.money >= manager.seuil
+  argentPourPalier(palier  : Palier){
+    return this.world.money >= palier.seuil
   }
 
   utiliserUnlock(unlock : Palier){

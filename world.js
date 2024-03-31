@@ -22,7 +22,7 @@ module.exports = {
             "paliers": [
                 {"name": "MOJOJOJO",
                     "logo": "icones/mojojojo.png",
-                    "seuil": 1000,
+                    "seuil": 100,
                     "idcible": 1,
                     "ratio": 2,
                     "typeratio": "vitesse",
@@ -31,9 +31,17 @@ module.exports = {
                 {
                     "name": "Poulpe Riche",
                     "logo": "icones/poulperiche.jpg",
-                    "seuil": 30,
+                    "seuil": 50,
                     "idcible": 1,
                     "nameProduit": "Poulpette",
+                    "ratio": 2,
+                    "typeratio": "gain",
+                    "unlocked": false
+                }, {
+                    "name": "Bébé octopus",
+                    "logo": "icones/cuteoctopus.jpg",
+                    "seuil": 1000,
+                    "idcible": 1,
                     "ratio": 2,
                     "typeratio": "gain",
                     "unlocked": false
@@ -47,7 +55,7 @@ module.exports = {
             "cout": 60,
             "croissance": 0.15,
             "revenu": 60,
-            "vitesse": 5000,
+            "vitesse": 3000,
             "quantite": 0,
             "timeleft": 0,
             "managerUnlocked": false,
@@ -61,20 +69,21 @@ module.exports = {
                     "unlocked": false
                 },
                 {
-                    "name": "Upgrade1Phone",
-                    "logo": "icones/upgrade.png",
+                    "name": "Super Nana au Téléphone",
+                    "logo": "icones/powerpuffphone.png",
                     "seuil": 50,
-                    "idcible": 1,
+                    "idcible": 2,
+                    "nameProduit": "Telephone",
                     "ratio": 2,
                     "typeratio": "vitesse",
                     "unlocked": false
                 },
                 {
-                    "name": "Nom du premier upgrade",
-                    "logo": "icones/premierupgrade.jpg",
-                    "seuil": 100,
-                    "idcible": 1,
-                    "ratio": 3,
+                    "name": "Telephone en colere",
+                    "logo": "icones/angryphone.png",
+                    "seuil": 8000,
+                    "idcible": 2,
+                    "ratio": 2,
                     "typeratio": "gain",
                     "unlocked": false
                 }
@@ -84,79 +93,162 @@ module.exports = {
             "name": "Perles" ,
             "logo": "icones/perles.jpg",
             "cout": 10,
-            "croissance": 0.05,
-            "revenu": 8,
-            "vitesse": 5000,
+            "croissance": 0.14,
+            "revenu": 540,
+            "vitesse": 5500,
             "quantite": 0,
             "timeleft": 0,
             "managerUnlocked": false,
             "paliers":[{
-                "name": "Upgrade1Perles",
-                "logo": "icones/upgrade.png",
-                "seuil": 55,
+                "name": "La main au bracelet",
+                "logo": "icones/lamainaubracelet.png",
+                "seuil": 100,
                 "idcible": 3,
+                "nameProduit": "Perles",
                 "ratio": 2,
-                "typeratio": "vitesse",
-                "unlocked": false}]},
+                "typeratio": "gain",
+                "unlocked": false
+            },
+                {
+                    "name": "MonsieurLeMaire",
+                    "logo": "icones/lemaire.jpg",
+                    "seuil": 50000,
+                    "idcible": 3,
+                    "nameProduit":"Perles",
+                    "ratio": 0,
+                    "typeratio": "gain",
+                    "unlocked": false
+                },
+                {
+                    "name": "Perles magiques",
+                    "logo": "icones/perlesviolettes.png",
+                    "seuil": 10000,
+                    "idcible": 3,
+                    "ratio": 2,
+                    "typeratio": "gain",
+                    "unlocked": false
+                }
+                ]},
         {"id": 4,
             "name": "Sceau" ,
             "logo": "icones/sceau.jpg",
-            "cout": 5000,
-            "croissance": 0.05,
+            "cout": 8640,
+            "croissance": 0.13,
             "revenu": 4320,
-            "vitesse": 5000,
+            "vitesse": 10000,
             "quantite": 0,
             "timeleft": 0,
             "managerUnlocked": false,
             "paliers":[{
-                "name": "Upgrade1Phone",
-                "logo": "icones/upgrade.png",
-                "seuil": 50,
+                "name": "MlleKeane",
+                "logo": "icones/mllekeane.png",
+                "seuil": 80000,
                 "idcible": 4,
-                "ratio": 2,
-                "typeratio": "vitesse",
+                "nameProduit":"Sceau",
+                "ratio": 0,
+                "typeratio": "gain",
                 "unlocked": false
-            }]},
+            },
+                {
+                    "name": "Chateau de sable mimi",
+                    "logo": "icones/chateaudesable.jpg",
+                    "seuil": 200,
+                    "idcible": 4,
+                    "nameProduit": "Sceau",
+                    "ratio": 2,
+                    "typeratio": "gain",
+                    "unlocked": false
+                },
+                {
+                    "name": "Amusement à la plage",
+                    "logo": "icones/sand.png",
+                    "seuil": 1800,
+                    "idcible": 3,
+                    "ratio": 2,
+                    "typeratio": "gain",
+                    "unlocked": false
+                }]},
         { "id": 5,
             "name": "CoeurPuissant" ,
             "logo": "icones/coeur.jpg",
-            "cout": 10,
-            "croissance": 0.05,
-            "revenu": 8,
-            "vitesse": 5000,
+            "cout": 50000,
+            "croissance": 0.10,
+            "revenu": 35000,
+            "vitesse": 24000,
             "quantite": 0,
             "timeleft": 0,
             "managerUnlocked": false,
-            "paliers":[{"name": "Upgrade1Phone",
-                "logo": "icones/upgrade.png",
-                "seuil": 50,
+            "paliers":[{
+                "name": "ProfesseurUtonium",
+                "logo": "icones/Professeur.png",
+                "seuil": 120000,
                 "idcible": 5,
-                "ratio": 2,
-                "typeratio": "vitesse",
-                "unlocked": false}]},
+                "nameProduit":"CoeurPuissant",
+                "ratio": 0,
+                "typeratio": "gain",
+                "unlocked": false
+            },{
+                "name": "Amour de soeurs",
+                "logo": "icones/sisterhood.png",
+                "seuil": 1000,
+                "idcible": 5,
+                "nameProduit": "CoeurPuissant",
+                "ratio": 3,
+                "typeratio": "gain",
+                "unlocked": false
+            },
+                ,{
+                    "name": "Discussion familiale",
+                    "logo": "icones/pudidee.png",
+                    "seuil": 50000,
+                    "idcible": 5,
+                    "ratio": 2,
+                    "typeratio": "gain",
+                    "unlocked": false
+                }]},
         {"id": 6,
             "name": "Noeud" ,
             "logo": "icones/noeud.jpg",
-            "cout": 100,
-            "croissance": 0.3,
-            "revenu": 250,
-            "vitesse": 5000,
+            "cout": 600000,
+            "croissance": 0.1,
+            "revenu": 40000,
+            "vitesse": 96000,
             "quantite": 0,
             "timeleft": 0,
             "managerUnlocked": false,
-            "paliers":[{"name": "Upgrade1Phone",
-                "logo": "icones/upgrade.png",
-                "seuil": 50,
+            "paliers":[{
+                "name": "PrincesseMorbucks",
+                "logo": "icones/morbucks.jpg",
+                "seuil": 300000,
+                "idcible": 6,
+                "nameProduit":"Noeud",
+                "ratio": 0,
+                "typeratio": "gain",
+                "unlocked": false
+            },{
+                "name": "Belle sans noeud",
+                "logo": "icones/bellesansnoeud.png",
+                "seuil": 1500,
+                "idcible": 6,
+                "nameProduit": "Noeud",
+                "ratio": 3,
+                "typeratio": "gain",
+                "unlocked": false
+            },{
+                "name": "Un joli noeud",
+                "logo": "icones/girl.png",
+                "seuil": 69000,
                 "idcible": 6,
                 "ratio": 2,
-                "typeratio": "vitesse",
-                "unlocked": false}
+                "typeratio": "gain",
+                "unlocked": false
+            }
             ]}],
     "allunlocks": [
         {
             "name": "Poulpe Riche",
             "logo": "icones/poulperiche.jpg",
-            "seuil": 30,
+            "seuil": 50,
             "idcible": 1,
             "nameProduit": "Poulpette",
             "ratio": 2,
@@ -166,7 +258,7 @@ module.exports = {
         {
             "name": "Super Nana au Téléphone",
             "logo": "icones/powerpuffphone.png",
-            "seuil": 30,
+            "seuil": 50,
             "idcible": 2,
             "nameProduit": "Telephone",
             "ratio": 2,
@@ -176,17 +268,17 @@ module.exports = {
         {
             "name": "La main au bracelet",
             "logo": "icones/lamainaubracelet.png",
-            "seuil": 50,
+            "seuil": 100,
             "idcible": 3,
             "nameProduit": "Perles",
             "ratio": 2,
-            "typeratio": "gain",
+            "typeratio": "vitesse",
             "unlocked": false
         },
         {
             "name": "Chateau de sable mimi",
             "logo": "icones/chateaudesable.jpg",
-            "seuil": 40,
+            "seuil": 200,
             "idcible": 4,
             "nameProduit": "Sceau",
             "ratio": 2,
@@ -200,7 +292,7 @@ module.exports = {
             "idcible": 5,
             "nameProduit": "CoeurPuissant",
             "ratio": 3,
-            "typeratio": "gain",
+            "typeratio": "vitesse",
             "unlocked": false
         },{
             "name": "Belle sans noeud",
@@ -215,11 +307,51 @@ module.exports = {
     ],
     "upgrades": [
         {
-            "name": "Nom du premier upgrade",
-            "logo": "icones/premierupgrade.jpg",
-            "seuil": 100,
+            "name": "Bébé octopus",
+            "logo": "icones/cuteoctopus.jpg",
+            "seuil": 1000,
             "idcible": 1,
-            "ratio": 3,
+            "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },{
+            "name": "Telephone en colere",
+            "logo": "icones/angryphone.png",
+            "seuil": 8000,
+            "idcible": 2,
+            "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },{
+            "name": "Perles magiques",
+            "logo": "icones/perlesviolettes.png",
+            "seuil": 10000,
+            "idcible": 3,
+            "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },{
+            "name": "Amusement à la plage",
+            "logo": "icones/sand.png",
+            "seuil": 18000,
+            "idcible": 3,
+            "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },{
+            "name": "Discussion familiale",
+            "logo": "icones/pudidee.png",
+            "seuil": 50000,
+            "idcible": 5,
+            "ratio": 2,
+            "typeratio": "gain",
+            "unlocked": false
+        },{
+            "name": "Un joli noeud",
+            "logo": "icones/girl.png",
+            "seuil": 69000,
+            "idcible": 6,
+            "ratio": 2,
             "typeratio": "gain",
             "unlocked": false
         }
@@ -239,8 +371,9 @@ module.exports = {
         {
             "name": "MOJOJOJO",
             "logo": "icones/mojojojo.png",
-            "seuil": 20,
+            "seuil": 100,
             "idcible": 1,
+            "nameProduit":"Poulpette",
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": false
@@ -248,8 +381,9 @@ module.exports = {
         {
             "name": "SaraBellum",
             "logo": "icones/SaraBellum.jpg",
-            "seuil": 1000,
+            "seuil": 15000,
             "idcible": 2,
+            "nameProduit":"Telephone",
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": false
@@ -257,8 +391,9 @@ module.exports = {
         {
             "name": "MonsieurLeMaire",
             "logo": "icones/lemaire.jpg",
-            "seuil": 200,
+            "seuil": 50000,
             "idcible": 3,
+            "nameProduit":"Perles",
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": false
@@ -266,8 +401,9 @@ module.exports = {
         {
             "name": "MlleKeane",
             "logo": "icones/mllekeane.png",
-            "seuil": 400,
+            "seuil": 80000,
             "idcible": 4,
+            "nameProduit":"Sceau",
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": false
@@ -275,8 +411,9 @@ module.exports = {
         {
             "name": "ProfesseurUtonium",
             "logo": "icones/Professeur.png",
-            "seuil": 100,
+            "seuil": 120000,
             "idcible": 5,
+            "nameProduit":"CoeurPuissant",
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": false
@@ -284,8 +421,9 @@ module.exports = {
         {
             "name": "PrincesseMorbucks",
             "logo": "icones/morbucks.jpg",
-            "seuil": 600,
+            "seuil": 300000,
             "idcible": 6,
+            "nameProduit":"Noeud",
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": false
