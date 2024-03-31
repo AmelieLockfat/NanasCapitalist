@@ -64,13 +64,15 @@ export class ProductComponent {
 
   }
 
- lancerProduction(product : Product){
-    this.run = true
-   this.product.timeleft = this.product.vitesse
-   this.product.lastupdate = Date.now()
-    this.service.lancerProduction(this.product).catch(reason =>
-   console.log("erreur: " + reason)
- );}
+  lancerProduction(product: Product) {
+    if (this.product.timeleft == 0) {
+      this.run = true
+      this.product.timeleft = this.product.vitesse
+      this.product.lastupdate = Date.now()
+      this.service.lancerProduction(this.product).catch(reason =>
+        console.log("erreur: " + reason));
+    }
+  }
 
 
 acheterQtProduit(product : Product){
@@ -80,8 +82,8 @@ acheterQtProduit(product : Product){
   console.log(this.product)
   this.service.acheterQtProduit(this.product.id, this.multiplicateurService.multiplicateurValue ).catch(reason =>
   console.log("erreur: " + reason))
-  this.notifyBuy.emit(this.product.cout);
-  this.product.quantite +=1;
+  this.product.quantite +=this.multiplicateurService.multiplicateurValue;
+  this.notifyBuy.emit(this.product);
 
 }
 }

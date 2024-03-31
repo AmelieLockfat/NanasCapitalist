@@ -14,6 +14,7 @@ export const GET_WORLD = gql`
   seuil
   ratio
   idcible
+  nameProduit
   typeratio
   unlocked}
   activeangels

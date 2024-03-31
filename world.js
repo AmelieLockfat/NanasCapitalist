@@ -29,12 +29,13 @@ module.exports = {
                     "unlocked": false
                 },
                 {
-                    "name": "Upgrade1Poulpette",
-                    "logo": "icones/upgrade.png",
-                    "seuil": 35,
+                    "name": "Poulpe Riche",
+                    "logo": "icones/poulperiche.jpg",
+                    "seuil": 30,
                     "idcible": 1,
+                    "nameProduit": "Poulpette",
                     "ratio": 2,
-                    "typeratio": "vitesse",
+                    "typeratio": "gain",
                     "unlocked": false
                 }
             ]
@@ -157,6 +158,7 @@ module.exports = {
             "logo": "icones/poulperiche.jpg",
             "seuil": 30,
             "idcible": 1,
+            "nameProduit": "Poulpette",
             "ratio": 2,
             "typeratio": "gain",
             "unlocked": false
@@ -166,6 +168,7 @@ module.exports = {
             "logo": "icones/powerpuffphone.png",
             "seuil": 30,
             "idcible": 2,
+            "nameProduit": "Telephone",
             "ratio": 2,
             "typeratio": "vitesse",
             "unlocked": false
@@ -175,6 +178,7 @@ module.exports = {
             "logo": "icones/lamainaubracelet.png",
             "seuil": 50,
             "idcible": 3,
+            "nameProduit": "Perles",
             "ratio": 2,
             "typeratio": "gain",
             "unlocked": false
@@ -184,6 +188,7 @@ module.exports = {
             "logo": "icones/chateaudesable.jpg",
             "seuil": 40,
             "idcible": 4,
+            "nameProduit": "Sceau",
             "ratio": 2,
             "typeratio": "gain",
             "unlocked": false
@@ -193,6 +198,7 @@ module.exports = {
             "logo": "icones/sisterhood.png",
             "seuil": 1000,
             "idcible": 5,
+            "nameProduit": "CoeurPuissant",
             "ratio": 3,
             "typeratio": "gain",
             "unlocked": false
@@ -201,6 +207,7 @@ module.exports = {
             "logo": "icones/bellesansnoeud.png",
             "seuil": 1500,
             "idcible": 6,
+            "nameProduit": "Noeud",
             "ratio": 3,
             "typeratio": "gain",
             "unlocked": false

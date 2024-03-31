@@ -100,8 +100,8 @@
         @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
           @if (!unlock.unlocked && index % 2 === 0) {
           <li style="margin: 15px;">
-            <img class="round" [src]="server + unlock.logo"/> {{unlock.name}}
-            donne x{{unlock.ratio}} pour {{unlock.seuil}} {{unlock.idcible}}
+            <img class="round2" [src]="server + unlock.logo"/> {{unlock.name}}
+            donne x{{unlock.ratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
           </li>
           }
         }
@@ -113,7 +113,8 @@
       @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
         @if (!unlock.unlocked && index % 2 === 1) {
           <li style="margin: 15px;">
-            <img class="round" [src]="server + unlock.logo"/>{{unlock.name}}
+            <img class="round2" [src]="server + unlock.logo"/>{{unlock.name}}
+      donne x{{unlock.ratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
           </li>
           }
         }

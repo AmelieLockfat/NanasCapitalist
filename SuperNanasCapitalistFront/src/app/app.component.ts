@@ -38,7 +38,7 @@ export class AppComponent {
     service.getWorld().then(
       world => {
         this.world = world.data.getWorld
-        console.log(this.world.allunlocks)
+        console.log(this.world)
       });
     this.showContent = true
   }
@@ -73,8 +73,7 @@ export class AppComponent {
     this.service.engagerManager(manager).catch(reason =>
       console.log("erreur: " + reason)
     )
-    this.onEngager.emit(manager);
-
+    manager.unlocked=true;
   }
   argentPourManager(manager : Palier){
     return this.world.money >= manager.seuil
@@ -103,11 +102,16 @@ export class AppComponent {
   }
 
 
-  onBuy(coutTot: number) {
-    this.world.money -= coutTot * this.multiplicateurService.multiplicateurValue;
+  onBuy(product: Product) {
+    this.world.money -= product.cout * this.multiplicateurService.multiplicateurValue;
+    //
+    let unlock = this.world.allunlocks.find(unlock => unlock.idcible === product.id)?? new Palier();
+    if((product.quantite >= unlock.seuil)&&!unlock.unlocked){
+      this.utiliserUnlock(unlock)
+      unlock.unlocked=true;
+    }
   }
 
-  @Output() onEngager: EventEmitter<Palier> = new EventEmitter<Palier>();
 
 }
 

@@ -46,6 +46,7 @@ export class Palier {
     logo = '';
     seuil = 0;
     idcible = 0;
+    nameProduit='';
     ratio = 0;
     typeratio = '';
     unlocked = false;

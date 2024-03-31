@@ -10,6 +10,7 @@ type Palier {
  logo: String
  seuil: Float
  idcible: Int
+ nameProduit: String
  ratio: Int
  typeratio: RatioType
  unlocked: Boolean

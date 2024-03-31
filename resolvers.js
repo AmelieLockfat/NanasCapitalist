@@ -11,7 +11,6 @@ function saveWorld(context) {
         })
 }
 function calcScore(context) {
-    console.log(context)
     const produits = context.world.products;
     const elapsetime = Date.now() - context.world.lastupdate;
     for (let p of produits) {
@@ -26,16 +25,12 @@ function calcScore(context) {
                 if (p.timeleft <= 0){
                     p.timeleft = 0;
                     argent_gagne = p.quantite * p.revenu;
-                    console.log(typeof argent_gagne)
-                    console.log(typeof context.world.money)
                     context.world.money = Number(context.world.money ) +argent_gagne;
                 }
             }
         }
     }
     context.world.lastupdate = Date.now();
-    console.log(context)
-    saveWorld(context);
 }
 module.exports = {
     Query: {
@@ -47,6 +42,7 @@ module.exports = {
     },
     Mutation: {
         acheterQtProduit(parent, args, context, info) {// Je veux chercher le produit dans le monde
+            calcScore(context)
             const produit = context.world.products.find(p => p.id === args.id);
             // Si le produit n'existe pas, je génère une erreur
             if (!produit) {
@@ -81,12 +77,12 @@ module.exports = {
             const produit = context.world.products.find(p => p.id === args.id);
             calcScore(context)
             produit.timeleft = produit.vitesse;
-            context.world.lastupdate = Date.now();
             saveWorld(context)
          return produit
         },
 
         engagerManager(parent, args, context, info) {
+            calcScore(context)
             const nomManager = args.name;
             const manager = context.world.managers.find(manager => manager.name === nomManager);
             //Je cherche le produit géré par ce manager
@@ -125,11 +121,15 @@ module.exports = {
         utiliserUnlock(parent, args, context, info){
             // product => product.paliers.find(palier => palier.name.includes(nomManager))
             const unlock =   context.world.allunlocks.find(unlock => unlock.name=== args.name);
-            const product = context.world.products.find(product => product.paliers.find(palier => palier.name.includes(unlock.name)));
+            const unlockIdcible =unlock.idcible;
+            const product = context.world.products.find(product => product.id === unlockIdcible);
+
+            console.log(product);
             //on vérifie que le unlock soit pas déjà utilisé
             if (!unlock.unlocked){
         if (unlock.typeratio =='gain') {
             product.revenu = Math.round(product.revenu * unlock.ratio);
+            console.log(product.revenu);
         }
         if (unlock.typeratio=='vitesse'){
             // produit pas en production
@@ -146,9 +146,11 @@ module.exports = {
                 product.vitesse = Math.round(product.vitesse/unlock.ratio);
             }
         }
-        unlock.unlocked=true;}
-        saveWorld(context)
-        return product
+
+                unlock.unlocked=true; }
+
+        saveWorld(context);
+        return unlock
         },
 
         utiliserCashUpgrade(parent, args, context, info){
@@ -172,7 +174,7 @@ module.exports = {
                     product.vitesse = Math.round(product.vitesse/upgrade.ratio);
                 }
                 upgrade.unlocked=true;}
-            saveWorld(context)
+            saveWorld(context);
             return product
             }
 
