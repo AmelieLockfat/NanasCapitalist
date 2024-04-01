@@ -96,8 +96,8 @@ utiliserUnlock(name : $name) {
   `
 
 export const UTILISER_UPGRADE = gql`
- mutation utiliser_upgrade($name : String!) {
-utiliserUnlock(name : $name) {
+ mutation utiliserCashUpgrade($name : String!) {
+utiliserCashUpgrade(name : $name) {
  name
  }
  }

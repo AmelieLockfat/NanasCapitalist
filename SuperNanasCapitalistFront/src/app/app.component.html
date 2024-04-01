@@ -140,7 +140,7 @@
       @if (!upgrade.unlocked && index % 2 === 0) {
       <li style="margin: 15px;">
         <img class="round" [src]="server + upgrade.logo"/> {{upgrade.name}}
-      <button class="boutonengager" [disabled]="!argentPourPalier(upgrade)" > Acheter {{upgrade.name}} pour {{upgrade.seuil}}$</button>
+      <button class="boutonengager" (click) ="utiliserUpgrade(upgrade)" [disabled]="!argentPourPalier(upgrade)" > Acheter {{upgrade.name}} pour {{upgrade.seuil}}$</button>
 
       </li>
       }
@@ -154,7 +154,7 @@
       @if (!upgrade.unlocked && index % 2 === 1) {
       <li style="margin: 15px;">
          <img class="round" [src]="server + upgrade.logo"/> {{upgrade.name}}
-      <button class="boutonengager"  [disabled]="!argentPourPalier(upgrade)"> Acheter {{upgrade.name}} pour {{upgrade.seuil}}$</button>
+      <button class="boutonengager" (click) ="utiliserUpgrade(upgrade)" [disabled]="!argentPourPalier(upgrade)"> Acheter {{upgrade.name}} pour {{upgrade.seuil}}$</button>
 
       </li>
       }
