@@ -6,16 +6,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BigvaluePipe implements PipeTransform {
 
-  transform(valeur: number, args?: any): string {
-     let res : string = "";
-     if (valeur < 1000)
-      res = valeur.toFixed(2);
-    else if (valeur < 1000000)
-      res = valeur.toFixed(0);
-    else if (valeur >= 1000000) {
-      res = valeur.toPrecision(4); 
-      res = res.replace(/e\+(.*)/, " 10<sup>$1</sup>"); 
-    } 
-    return res;
-   }
+  transform(value: number, args?: any): string  {
+    let result: string = "";
+
+    if (value < 1000)
+      result = '$' + value.toFixed(2);
+    else if (value < 1000000)
+      result = '$' + value.toFixed(0);
+    else if (value < 1000000000)
+      result = '$' + (value / 1000000).toFixed(2) + " million";
+    else if (value >= 1000000000)
+      result = '$' + (value / 1000000000).toFixed(2) + " billion";
+
+      return result;  }
 }
+
