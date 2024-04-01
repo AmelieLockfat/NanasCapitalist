@@ -14,9 +14,9 @@ export class BigvaluePipe implements PipeTransform {
     else if (value < 1000000)
       result = '$' + value.toFixed(0);
     else if (value < 1000000000)
-      result = Math.floor(value / 1000000) + " million";
+      result = '$' + Math.floor(value / 1000000) + " million";
     else
-      result = Math.floor(value / 1000000000) + " billion";
+      result = '$' + Math.floor(value / 1000000000) + " billion";
 
     return result;
   }
