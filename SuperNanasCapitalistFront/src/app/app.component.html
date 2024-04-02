@@ -5,11 +5,11 @@
   <div class="header">
     <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/> <img id="nameWorld" [src]="server+ 'icones/worldname.png'"/> </div>
 
-    <div> <span id="worldmoney" > {{world.money|bigvalue}}</span> </div>
+    <div> <span id="worldmoney" class="money"> {{world.money|bigvalue}}</span> </div>
 
     <div> <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicateur : {{ multiplicateurService.multiplicateurValue }}</button> </div>
     <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
-      <button class="multiplicateur" (click)="reloadPage()">Charger mon monde</button></div>
+      <button class="multiplicateur" (click)="reloadPage()" >Charger mon monde</button></div>
 
   </div>
     <div class="main">
@@ -99,9 +99,12 @@
       <ul >
         @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
           @if (!unlock.unlocked && index % 2 === 0) {
-          <li style="margin: 15px;">
-            <img class="round2" [src]="server + unlock.logo"/> {{unlock.name}}
+          <li style="margin: 15px;list-style-type: '🩷';">
+            <img class="round2" [src]="server + unlock.logo"/>
+            <td></td>
+            <span class = "descriptionunlocks">{{unlock.name}}
             donne x{{unlock.ratio}}  en {{unlock.typeratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
+          </span>
           </li>
           }
         }
@@ -112,9 +115,12 @@
     <ul>
       @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
         @if (!unlock.unlocked && index % 2 === 1) {
-          <li style="margin: 15px;">
-            <img class="round2" [src]="server + unlock.logo"/>{{unlock.name}}
+          <li style="margin: 15px;list-style-type: '🩷';">
+            <img class="round2" [src]="server + unlock.logo" />
+            <td></td>
+            <span class = "descriptionunlocks">{{unlock.name}}
       donne x{{unlock.ratio}}  en {{unlock.typeratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
+    </span>
           </li>
           }
         }

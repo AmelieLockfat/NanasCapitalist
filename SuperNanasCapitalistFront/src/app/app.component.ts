@@ -79,6 +79,7 @@ export class AppComponent {
       console.log("erreur: " + reason)
     )
     manager.unlocked=true;
+
   }
   argentPourPalier(palier  : Palier){
     return this.world.money >= palier.seuil

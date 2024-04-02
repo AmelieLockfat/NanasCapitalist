@@ -19,6 +19,27 @@
   overflow: auto;
 
 }
+.money{
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 30px;
+  color: rgb(255, 24, 128); /* Couleur rose vif pour le texte */
+  background-color: transparent; /* Fond transparent */
+  padding: 5px 10px; /* Ajouter du rembourrage pour l'espace autour du texte */
+  text-shadow: -1px -1px 0 #ffffff,  
+                1px -1px 0 #ffffff,  
+                -1px 1px 0 #ffffff,  
+                1px 1px 0 #ffffff; /* Contour blanc autour du texte */
+  border-radius: 10px; /* Ajouter des coins arrondis */
+}
+.descriptionunlocks{
+
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 16px;
+    color: rgb(255, 0, 128);
+    
+  
+}
+
 .boutondebloquer{
   color: #FFD700; /* Couleur du texte en rose */
   border: 2px solid #bfa200;

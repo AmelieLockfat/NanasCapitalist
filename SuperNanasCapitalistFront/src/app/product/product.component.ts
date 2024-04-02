@@ -4,11 +4,12 @@ import {WebserviceService} from "../webservice.service";
 import {MatProgressBarModule} from '@angular/material/progress-bar'
 import {MyProgressBarComponent, Orientation} from './progressbar.component';
 import {MultiplicateurService} from "../MultiplicateurService";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [MatProgressBarModule,MyProgressBarComponent],
+  imports: [MatProgressBarModule,MyProgressBarComponent, DatePipe],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -45,6 +46,7 @@ export class ProductComponent {
     setInterval(() => {
       if(this.product.id!=0){
         this.calcScore();
+        this.multiplicateurService.multiplicateurValue;
       }
     }, 100);
   }
@@ -54,7 +56,8 @@ export class ProductComponent {
     this.product = value;
     if (!this.product) this.product = new Product()
    // console.log(this.product)
-  }
+    }
+  
 
 
 
@@ -110,6 +113,7 @@ acheterQtProduit(product : Product){
     } else { // S'il y a un manager
       if(this.product.timeleft==0){
         this.lancerProduction(this.product);
+        this.run=true;
       }else{
         this.product.lastupdate = Date.now(); // Mettre à jour la dernière mise à jour sinon lastupdate ne fait qu'augmenter
         if (this.product.timeleft <= elapsedTime) { // Si le produit a eu le temps d'être créé

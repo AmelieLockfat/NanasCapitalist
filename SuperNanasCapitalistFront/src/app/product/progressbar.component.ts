@@ -27,10 +27,10 @@ vitesse = 0;
 orientation: Orientation = Orientation.horizontal;
 
 @Input()
-auto = false;
+auto = true;
 
 @Input()
-run = false;
+run = true;
 
 @ViewChild('canvasRef') canvasRef: ElementRef | undefined;
 animationRef = {value: 0};
