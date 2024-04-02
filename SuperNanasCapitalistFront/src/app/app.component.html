@@ -21,7 +21,7 @@
             <td><button class="boutonunlocks" type="button" (click)="toggleUnlocksSection()">Unlocks</button></td>
             </tr>
             <tr>
-            <td><button mat-raised-button class="boutoncash" type="button"(click) = "toggleCashUpgradesSection()" 
+            <td><button mat-raised-button class="boutoncash" type="button"(click) = "toggleCashUpgradesSection()"
               color="primary"
               [matBadge]="badgeUpgrades"
               [matBadgeHidden]="badgeUpgrades==0"
@@ -31,7 +31,7 @@
             <td><button class="boutonangel" type="button">Angel Upgrades</button></td>
             </tr>
             <tr>
-            <td><button  mat-raised-button class="boutonManagers" type="button" (click)="toggleManagersSection()" 
+            <td><button  mat-raised-button class="boutonManagers" type="button" (click)="toggleManagersSection()"
               color="primary"
               [matBadge]="badgeManagers"
               [matBadgeHidden]="badgeManagers==0"
@@ -108,7 +108,7 @@
         @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
           @if (!unlock.unlocked && index % 2 === 0) {
           <li style="margin: 15px;list-style-type: '🩷';">
-            <img class="round2" [src]="server + unlock.logo"/>
+            <img class="round3" [src]="server + unlock.logo"/>
             <td></td>
             <span class = "descriptionunlocks">{{unlock.name}}
             donne x{{unlock.ratio}}  en {{unlock.typeratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}
@@ -124,7 +124,7 @@
       @for (unlock of world.allunlocks;let index = $index; track unlock.idcible){
         @if (!unlock.unlocked && index % 2 === 1) {
           <li style="margin: 15px;list-style-type: '🩷';">
-            <img class="round2" [src]="server + unlock.logo" />
+            <img class="round3" [src]="server + unlock.logo" />
             <td></td>
             <span class = "descriptionunlocks">{{unlock.name}}
       donne x{{unlock.ratio}}  en {{unlock.typeratio}} pour {{unlock.seuil}} {{unlock.nameProduit}}

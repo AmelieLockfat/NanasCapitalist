@@ -46,9 +46,9 @@ export class AppComponent {
   }
 
   popMessage(message : string) : void {
-    this.snackBar.open(message, "", { 
+    this.snackBar.open(message, "", {
       duration: 2000,
-    
+
     });
 }
 
@@ -107,6 +107,7 @@ updateBadges(){
         console.log("erreur: " + reason)
     );
     unlock.unlocked=true;
+    this.popMessage('Vous avez un nouvel unlock ! Incroyable !');
   }
 
   utiliserUpgrade(upgrade : Palier){
@@ -114,6 +115,7 @@ updateBadges(){
       console.log("erreur: " + reason)
     );
     upgrade.unlocked=true;
+    this.popMessage('Sympa le nouvel upgrade ! ');
   }
 
 

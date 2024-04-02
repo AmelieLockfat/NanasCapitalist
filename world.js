@@ -92,7 +92,7 @@ module.exports = {
         {"id": 3,
             "name": "Perles" ,
             "logo": "icones/perles.jpg",
-            "cout": 10,
+            "cout": 1000,
             "croissance": 0.14,
             "revenu": 540,
             "vitesse": 5500,

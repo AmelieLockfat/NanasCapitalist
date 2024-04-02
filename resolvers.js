@@ -158,7 +158,8 @@ module.exports = {
             calcScore(context);
             const upgrade =   context.world.upgrades.find(upgrade => upgrade.name === args.name);
             const product = context.world.products.find(product => product.paliers.find(palier => palier.name.includes(upgrade.name)));
-            if (!upgrade.unlocked){
+            if (!upgrade.unlocked ){
+                if ( context.world.money>  upgrade.seuil){
                 context.world.money= Number(context.world.money) - upgrade.seuil;
                 if (upgrade.typeratio=='gain') {
                     product.revenu = Math.round(product.revenu * upgrade.ratio);
@@ -175,7 +176,7 @@ module.exports = {
                     product.timeleft=Math.round(product.timeleft/upgrade.ratio);
                     //on divise aussi la vitesse du produit par le bonuus
                     product.vitesse = Math.round(product.vitesse/upgrade.ratio);
-                }
+                }}
                 upgrade.unlocked=true;}
             saveWorld(context);
             return product
