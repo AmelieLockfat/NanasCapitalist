@@ -359,7 +359,7 @@ module.exports = {
     "angelupgrades": [
         {
             "name": "Angel Sacrifice",
-            "logo": "icones/angel.png",
+            "logo": "icones/angel.jpg",
             "seuil": 10,
             "idcible": 0,
             "ratio": 3,
