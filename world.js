@@ -361,6 +361,15 @@ module.exports = {
             "name": "Angel Sacrifice",
             "logo": "icones/angel.jpg",
             "seuil": 10,
+            "idcible": 1,
+            "ratio": 3,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "Angel Sacrifice 2",
+            "logo": "icones/angel.jpg",
+            "seuil": 50,
             "idcible": 0,
             "ratio": 3,
             "typeratio": "gain",
