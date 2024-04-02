@@ -5,7 +5,7 @@
   <div class="header">
     <div class="logo-world"> <img id="logoWorld" [src]="server+ world.logo"/> <img id="nameWorld" [src]="server+ 'icones/worldname.png'"/> </div>
 
-    <div> <span id="worldmoney" class="money"> {{world.money|bigvalue}}</span> </div>
+    <div> <span id="worldmoney" class="money"> {{world.money|bigvalue}}</span></div>
 
     <div> <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicateur : {{ multiplicateurService.multiplicateurValue }}</button> </div>
     <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/>
@@ -21,13 +21,21 @@
             <td><button class="boutonunlocks" type="button" (click)="toggleUnlocksSection()">Unlocks</button></td>
             </tr>
             <tr>
-            <td><button class="boutoncash" type="button"(click) = "toggleCashUpgradesSection()">Cash Upgrades</button></td>
+            <td><button mat-raised-button class="boutoncash" type="button"(click) = "toggleCashUpgradesSection()" 
+              color="primary"
+              [matBadge]="badgeUpgrades"
+              [matBadgeHidden]="badgeUpgrades==0"
+             >Cash Upgrades</button></td>
             </tr>
             <tr>
             <td><button class="boutonangel" type="button">Angel Upgrades</button></td>
             </tr>
             <tr>
-            <td><button class="boutonManagers" type="button" (click)="toggleManagersSection()">Managers</button></td>
+            <td><button  mat-raised-button class="boutonManagers" type="button" (click)="toggleManagersSection()" 
+              color="primary"
+              [matBadge]="badgeManagers"
+              [matBadgeHidden]="badgeManagers==0"
+              >Managers</button></td>
             </tr>
             <tr>
             <td><button class="boutoninvestors" type="button">Investors</button></td>
@@ -130,8 +138,6 @@
 </div>
 
 }
-
-
 
       @if(showCashUpgradesSection){
       <div class="dessus" >

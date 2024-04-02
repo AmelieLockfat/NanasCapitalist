@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';  // Importez le module FormsModule
 import { BigvaluePipe } from './bigvalue.pipe';
 import {MultiplicateurService} from "./MultiplicateurService";
 import { MatSnackBar} from '@angular/material/snack-bar';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductComponent, FormsModule, BigvaluePipe, CommonModule],
+  imports: [RouterOutlet, ProductComponent, FormsModule, BigvaluePipe, CommonModule, MatBadgeModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -27,12 +29,10 @@ export class AppComponent {
   showManagersSection = false;
   showUnlocksSection = false;
   showCashUpgradesSection = false;
-
-
-
   showContent
 
-
+  badgeManagers : number =0;
+  badgeUpgrades : number =0;
 
   constructor(private service: WebserviceService, private router: Router, public multiplicateurService : MultiplicateurService, private snackBar : MatSnackBar) {
  this.multiplicateurService=multiplicateurService;
@@ -46,11 +46,18 @@ export class AppComponent {
   }
 
   popMessage(message : string) : void {
-    // Configuration de la boîte de notification avec une classe CSS
     this.snackBar.open(message, "", { 
       duration: 2000,
-      panelClass: ['custom-snackbar'] // Appliquer la classe de style personnalisé
+    
     });
+}
+
+updateBadges(){
+  var managers: Palier[]= this.world.managers.filter(m => m.seuil <= this.world.money);
+  var cashUpgrades : Palier[]=this.world.upgrades.filter(u =>u.seuil <=this.world.money);
+
+  this.badgeManagers = managers.filter(m=> !m.unlocked) .length;
+  this.badgeUpgrades = cashUpgrades.filter( u=>!u.unlocked).length ;
 }
 
   reloadPage() {
@@ -71,12 +78,12 @@ export class AppComponent {
 
   toggleManagersSection() {
     this.showManagersSection = !this.showManagersSection;
-
+    this.updateBadges();
   }
 
   toggleCashUpgradesSection() {
     this.showCashUpgradesSection = !this.showCashUpgradesSection;
-
+    this.updateBadges();
   }
   toggleUnlocksSection() {
     this.showUnlocksSection= !this.showUnlocksSection;
@@ -124,11 +131,13 @@ export class AppComponent {
   onProductionDone(p: Product) {
     this.world.score += p.revenu*p.quantite
     this.world.money += p.revenu*p.quantite
+    this.updateBadges();
   }
 
 
   onBuy(product: Product) {
     this.world.money -= product.cout * this.multiplicateurService.multiplicateurValue;
+    this.updateBadges();
     //
     let unlock = this.world.allunlocks.find(unlock => unlock.idcible === product.id)?? new Palier();
     if((product.quantite >= unlock.seuil)&&!unlock.unlocked){
