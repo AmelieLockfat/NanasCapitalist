@@ -89,7 +89,16 @@ export class AppComponent {
     this.service.utiliserUnlock(unlock).catch(reason =>
         console.log("erreur: " + reason)
     );
+    unlock.unlocked=true;
   }
+
+  utiliserUpgrade(upgrade : Palier){
+    this.service.utiliserUpgrade(upgrade).catch(reason =>
+      console.log("erreur: " + reason)
+    );
+    upgrade.unlocked=true;
+  }
+
 
   onMultiplicateurClick() {
     if (this.multiplicateurService.multiplicateurValue === 1) {
