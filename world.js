@@ -196,7 +196,7 @@ module.exports = {
                 "ratio": 3,
                 "typeratio": "gain",
                 "unlocked": false
-            },
+            }
                 ,{
                     "name": "Discussion familiale",
                     "logo": "icones/pudidee.png",

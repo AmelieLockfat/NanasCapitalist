@@ -177,7 +177,8 @@ module.exports = {
                     //on divise aussi la vitesse du produit par le bonuus
                     product.vitesse = Math.round(product.vitesse/upgrade.ratio);
                 }}
-                upgrade.unlocked=true;}
+               }
+            upgrade.unlocked=true; // pourquoi il ne marche pas lui !
             saveWorld(context);
             return product
             }
