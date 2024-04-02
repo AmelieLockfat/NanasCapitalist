@@ -367,10 +367,46 @@ module.exports = {
             "unlocked": false
         },
         {
-            "name": "Angel Sacrifice 2",
+            "name": "MegaNana",
             "logo": "icones/angel.jpg",
             "seuil": 50,
-            "idcible": 0,
+            "idcible": 2,
+            "ratio": 3,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "MegaNanaCapitalist",
+            "logo": "icones/angel.jpg",
+            "seuil": 1000,
+            "idcible": 3,
+            "ratio": 3,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "MegaNanaIngenieure",
+            "logo": "icones/angel.jpg",
+            "seuil": 50000,
+            "idcible":4,
+            "ratio": 3,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "MegaNanaIngeieureTropMimi",
+            "logo": "icones/angel.jpg",
+            "seuil": 5000000,
+            "idcible": 5,
+            "ratio": 3,
+            "typeratio": "gain",
+            "unlocked": false
+        },
+        {
+            "name": "MegaNanaMaitreduMonde",
+            "logo": "icones/angel.jpg",
+            "seuil": 500000000000,
+            "idcible": 6,
             "ratio": 3,
             "typeratio": "gain",
             "unlocked": false
