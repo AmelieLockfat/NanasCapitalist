@@ -18,7 +18,6 @@
         <td scope="row" colspan="3">
           {{product.revenu}}$/{{product.name}}
           <div class="progressbar-container">
-          <!--<div class="progressbar" style="background-color: red;">-->
             <app-my-progress-bar [run]="run" [auto]="product.managerUnlocked"
             frontcolor="#008800"
             backcolor="#DD2476"
@@ -28,8 +27,7 @@
             [style.background-color]="'#C0C0C0'"
             [style.width]="'100%'">
 </app-my-progress-bar>
-         <!--<mat-progress-bar [value]="progressbarvalue" title="progression" ></mat-progress-bar></div>-->
-          <!--</div>--></div></td>
+         </div></td>
       </tr>
 
     </tbody>

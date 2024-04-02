@@ -46,7 +46,6 @@ export class ProductComponent {
     setInterval(() => {
       if(this.product.id!=0){
         this.calcScore();
-        this.multiplicateurService.multiplicateurValue;
       }
     }, 100);
   }
@@ -110,8 +109,8 @@ acheterQtProduit(product : Product){
           this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
         }
       }
-    } else { // S'il y a un manager
-      if(this.product.timeleft==0){
+    } else { // S'il y a un manager this.timeleft==0
+      if(this.product.managerUnlocked){
         this.lancerProduction(this.product);
         this.run=true;
       }else{

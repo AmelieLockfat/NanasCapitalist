@@ -7,6 +7,7 @@ import {CommonModule, DOCUMENT, NgFor} from "@angular/common";
 import { FormsModule } from '@angular/forms';  // Importez le module FormsModule
 import { BigvaluePipe } from './bigvalue.pipe';
 import {MultiplicateurService} from "./MultiplicateurService";
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,7 @@ export class AppComponent {
 
 
 
-  constructor(private service: WebserviceService, private router: Router, public multiplicateurService : MultiplicateurService) {
+  constructor(private service: WebserviceService, private router: Router, public multiplicateurService : MultiplicateurService, private snackBar : MatSnackBar) {
  this.multiplicateurService=multiplicateurService;
     this.getUsername();
     service.getWorld().then(
@@ -43,6 +44,14 @@ export class AppComponent {
       });
     this.showContent = true
   }
+
+  popMessage(message : string) : void {
+    // Configuration de la boîte de notification avec une classe CSS
+    this.snackBar.open(message, "", { 
+      duration: 2000,
+      panelClass: ['custom-snackbar'] // Appliquer la classe de style personnalisé
+    });
+}
 
   reloadPage() {
     this.router.navigate(['.']).then(() => {
@@ -79,6 +88,7 @@ export class AppComponent {
       console.log("erreur: " + reason)
     )
     manager.unlocked=true;
+    this.popMessage('Vous avez engagé un manager ! Bravo !');
 
   }
   argentPourPalier(palier  : Palier){
